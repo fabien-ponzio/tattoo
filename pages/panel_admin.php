@@ -26,7 +26,7 @@
     </select>
 
     <label for="taille">Taille du tatouage</label>
-    <input type="text">
+    <input type="text" name="taille">
 
     <label for="destination">Destination</label>
     <label for="flash">Flash</label>

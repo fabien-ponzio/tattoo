@@ -8,6 +8,8 @@
 </head>
 
     <?php 
+    require_once('dbconnect.php');
+    require_once('class_admin.php');
     if (isset($_POST['connectAdmin'])) {
         $admin = new Database;
         $admin->connect($_POST['login'], $_POST['password']);
