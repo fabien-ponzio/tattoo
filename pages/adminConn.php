@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +19,7 @@
 <body>
     <main>
     <form action="" method="POST">
+
     <h1>Connexion Admin</h1>
     <label for="login">Login:</label>
     <input type="text" name="login" required="">
@@ -29,5 +31,26 @@
 
     </form>
     </main>
+
+    <form action="" method="POST">
+
+    <h1>Inscription</h1>
+    <div class="user-box">
+      <input type="text" name="login" required="">
+      
+      <label>Login</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Mot de passe</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="confirmPW" required="">
+      <label>Confirmez votre mot de passe</label>
+    </div>
+    <input class="register" type="submit" name="register">
+    <a href="#">
+
+    </form>
 </body>
 </html>

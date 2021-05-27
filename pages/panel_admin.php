@@ -7,6 +7,14 @@
     <title>admin_panel</title>
 </head>
 <body>
+<?php
+require_once('../class/dbconnect.php');
+require_once('../class/class_admin.php');
+if (isset($_POST['register'])) {
+    $ajoutAdmin = new Admin;
+    $ajoutAdmin->registerAdmin();
+}
+?>
     <main>
     <form action="../class/class_admin.php">
     
@@ -35,8 +43,22 @@
     <input type="radio" id="realisation" name="destination" value="realisation">
 
     <input type="submit" name="publier" value="publier">
-
     </form>
+
+    <form action="" method="POST">
+    <h1>Ajouter un administrateur</h1>
+    <label for="login">login</label>
+    <input type="text" name="login">
+
+    <label for="login">password</label>
+    <input type="password" name="password">
+
+    <label>Confirmez votre mot de passe</label>
+    <input type="password" name="confirmPW">
+
+    <input class="register" type="submit" name="register">
+    </form>
+
     </main>
 </body>
 </html>
