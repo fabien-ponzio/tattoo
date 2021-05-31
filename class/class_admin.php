@@ -81,15 +81,75 @@ class Admin
                 $insert->execute();
                 echo"Nouvel administrateur ajouté";
                 }else{
-                    # code...
+                    echo "Les mots de passe ne correspondent pas"; 
                 }
             }else{
-                # code...
+                echo "l'utilisateur n'existe pas";
             }
         }else {
-            # code...
+            echo"veuillez remplir tous les champs";
         }
     }
+// TABLE DES ADMIN - ON DISPLAY LES ADMIN DANS UN TABLEAU AVEC LA POSSIBILITE DE LES SUPPRIMER
+
+    public function AdminTable(){
+        $db = new Database;
+        $db->connect();
+        $tableUser = $db->conn->query("SELECT d.nom, a.login, a.id_droits, d.id FROM droit d INNER JOIN admin a ON a.id_droit = d.id WHERE a.id_droit = 1337"); 
+        // SI PAS DE VARIABLE = PAS DE bindValue 
+        $result = $tableUser->fetchAll(PDO::FETCH_ASSOC);
+        echo"<table> <th> Admin </th>"; 
+        for ($i=0; $i < count($result) ; $i++) {       
+          echo"<tr>
+          <td>" . $result[$i]['login'] . "</td>
+            </tr>";
+        }
+    echo"</table>"; 
+}
+// MENU DEROULANT 
+
+    public function dropDown(){
+        $db = new Database;
+        $conn = $db->connect();
+        $i = 0;
+
+        var_dump($conn);
+
+        $drop = $conn->query("SELECT * FROM admin");
+
+        while($fetch = $drop->fetch(PDO::FETCH_ASSOC)){
+            $tableau[$i][] = $fetch['id'];
+            $tableau[$i][] = $fetch['login'];
+            $i++;
+            // var_dump($drop);
+        }
+        return $tableau; 
+    }
+
+    public function dropDownDisplay(){
+        echo "bonjour";
+        $db = new Database;
+        $db->connect();
+        $admin = new Admin;
+        $adminTab = $admin->dropDown();
+
+        foreach ($adminTab as $value) {
+            echo '<option value="' . $value[0] . '">' . $value[1] . '</option>';
+            var_dump($value[0]);
+        }
+    }
+
+// SUPPRESSION D'ADMIN
+    public function deleteAdmin(){
+    $login = $_POST['login'];
+    $db = new Database;
+    $db->connect();
+    
+    $deleteAdmin =  $db->conn->prepare("DELETE FROM admin WHERE id = :login");
+    $deleteAdmin->bindValue(":login", $login, PDO::PARAM_INT);
+    $deleteAdmin->execute();
+    }
+
 }
 
 ?>

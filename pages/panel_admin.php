@@ -10,10 +10,17 @@
 <?php
 require_once('../class/dbconnect.php');
 require_once('../class/class_admin.php');
+
 if (isset($_POST['register'])) {
     $ajoutAdmin = new Admin;
     $ajoutAdmin->registerAdmin();
 }
+
+if (isset($_POST['deleteAdmin'])) {
+    $AdminDelete = new Admin;
+    $AdminDelete->deleteAdmin(); 
+}
+
 ?>
     <main>
     <form action="../class/class_admin.php">
@@ -57,6 +64,18 @@ if (isset($_POST['register'])) {
     <input type="password" name="confirmPW">
 
     <input class="register" type="submit" name="register">
+    </form>
+
+    <form action="" method="POST">
+    <label for="deleteAdmin">Supprimer un admin</label>
+    <select name="login" id="adminDropDown">
+        <option value="" name="login">Select</option>
+        <?php
+        $deleteAdmin = new Admin();
+        $deleteAdmin->dropDownDisplay();
+        ?>
+    </select>
+    <input type="submit" name="deleteAdmin">
     </form>
 
     </main>
