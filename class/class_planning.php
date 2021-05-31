@@ -6,7 +6,6 @@ class Planning
     public $daysOfWeek; 
 
     public function build_calendar($month, $year){
-        // ini_set('memory_limit', '1024M');
         //tableau des jours de la semaine
         $daysOfWeek = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');   
 
@@ -52,14 +51,27 @@ class Planning
 
         // on récupère le numéro du mois
 
-        $month = str_pad($month, 2, "O", STR_PAD_LEFT); 
+        $month = str_pad($month,2,"0",STR_PAD_LEFT); 
 
         while($currentDay <= $numberDays){
-            $currentDayRel = str_pad($currentDay, 2, "O", STR_PAD_LEFT); 
+            if ($dayOfWeek ==7) {
+                $dayOfWeek = 0; 
+                $calendar.="<tr></tr>";
+            } 
+            $currentDayRel = str_pad($currentDay,2,"0",STR_PAD_LEFT); 
             $date = "$year-$month-$currentDayRel"; 
+        //    $currentDayRel++;
 
-            $calendar.="<td><h4>$currentDay</h4>";
+            if($datetoday == $date ){
+                $calendar.="<td><h4>$currentDay</h4>";
+            }else {
+                // var_dump($currentDay);
+                $calendar.="<td><h4>$currentDay</h4>";
+               
+            }
             $calendar.="</td>"; 
+            $currentDay++;
+            $dayOfWeek++;
         }
         //incrémentation
         $currentDay++;
