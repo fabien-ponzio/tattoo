@@ -127,7 +127,6 @@ class Admin
     }
 
     public function dropDownDisplay(){
-        echo "bonjour";
         $db = new Database;
         $db->connect();
         $admin = new Admin;

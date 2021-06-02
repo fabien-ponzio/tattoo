@@ -1,10 +1,15 @@
 <?php 
+require_once('class_reservation');
 class Planning
 {
+    public $date; 
     public $month; 
     public $year; 
     public $daysOfWeek; 
+    public DateTime $start; 
+    public DateTime $end; 
 
+    // génération du calendrier au mois
     public function build_calendar($month, $year){
         //tableau des jours de la semaine
         $daysOfWeek = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');   
@@ -37,7 +42,7 @@ class Planning
         foreach ($daysOfWeek as $day) {
             $calendar.="<th class='header'>$day</th>";
         }
-        $calendar="</tr><tr>"; 
+        $calendar.="</tr><tr>"; 
 
         //$dayOfWeek va s'assurer que le tableau contient bien 7 jours 
         if ($dayOfWeek > 0) {
@@ -88,14 +93,48 @@ class Planning
         $calendar.="</table>"; 
 
         echo $calendar; 
-
     }
     
 
+    // génération du semainier 
+    public function displayHtmlTable(DateTime $inputDate, ReservationsManager $ReservationsManager){
+        require_once('class_reservation');
+        $date = clone $inputDate; 
+
+        // Je créée les colonnes vides
+        $day = ['']; 
+        $day = clone $date; // je clone
+
+        // je boucle les colonnes
+        for ($i = 1; $i <= 6; $i++){
+            $day[] = clone $date->add(new DateInterval('P1D')); 
+        }
+
+
+        //$reservation est unn tableau vide 
+        $reservations=[]; 
+
+        // CONNEXION A LA BDD
+        $db = new Database;
+        $conn = $db->connect(); 
+        
+        $reservationList = new Reservation($id);
+        $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
+
+
+        
+        $sth = $conn->prepare("SELECT id FROM `reservation` WHERE :debut <= `debut` AND `debut` <= :fin;");
+        $sth->bindValue(":debut", $start); 
+        $sth->bindValue(":fin", $end); 
+        $sth->execute(); 
+        $result = $sth->fetchAll(PDO::FETCH_ASSOC); 
+        var_dump($result);
+
+        // foreach ($result as $reservation) {
+        //     # code...
+        // }
+
+    } 
 }
-
-  
-
-
 
 ?>
