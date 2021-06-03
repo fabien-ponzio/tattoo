@@ -1,5 +1,6 @@
 <?php 
 require_once('class_reservation.php');
+require_once('dbconnect.php'); 
 class Planning
 {
     public $date; 
@@ -97,16 +98,18 @@ class Planning
     
 
     // génération du semainier 
-    public function displayHtmlTable(DateTime $inputDate, ReservationsManager $ReservationsManager){
+    public function displayHtmlTable(DateTime $inputDate){
         require_once('class_reservation.php');
+        // on clone parce que on abesoin de dupliquer l'objet DATE
         $date = clone $inputDate; 
 
         // Je créée les colonnes vides
         $day = ['']; 
-        $day = clone $date; // je clone
+        $day[] = clone $date; // je clone
 
         // je boucle les colonnes
         for ($i = 1; $i <= 6; $i++){
+            // on ajoute 1 jour au premier jour
             $day[] = clone $date->add(new DateInterval('P1D')); 
         }
 
@@ -118,16 +121,9 @@ class Planning
         $db = new Database;
         $conn = $db->connect(); 
         
-        $reservationList = new Reservation($id);
-        $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
+        $reservationList = new Reservation();
+        $result = $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
 
-
-        
-        $sth = $conn->prepare("SELECT id FROM `reservation` WHERE :debut <= `debut` AND `debut` <= :fin;");
-        $sth->bindValue(":debut", $start); 
-        $sth->bindValue(":fin", $end); 
-        $sth->execute(); 
-        $result = $sth->fetchAll(PDO::FETCH_ASSOC); 
         var_dump($result);
 
         foreach ($result as $reservation) {

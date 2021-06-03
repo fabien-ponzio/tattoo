@@ -42,19 +42,20 @@ public DateTime $end;
         ]);
 
         if(!$query){
-            //????????????????????????????????
             throw new Exception('drrrrrrrrrrrrrrrr drrrrrrrrrrr');
         }
     }
 
 
     public function get($id){
-        $id = (int) $id(); 
+        $id = (int) $id; 
         $db = new Database; 
+        $db->connect(); 
+        // REQUETE A TAFFER HARKOR
         $query = $db->conn->prepare("SELECT * FROM reservation INNER JOIN admin ON id_tatoueur = admin.id WHERE reservation.id = $id");       
         $query->execute(); 
         $reservationInfos = $query->fetch(PDO::FETCH_ASSOC);
-        return $this->$reservationInfos;
+        return $reservationInfos;
     }
 
 
@@ -66,12 +67,15 @@ public DateTime $end;
         $db = new Database;
         $db->connect();
     
-        $sth = $db->conn->prepare("SELECT id FROM `reservation` WHERE :debut <= `debut` AND `debut` <= :fin;");
+        $sth = $db->conn->prepare("SELECT id FROM `reservation` WHERE :debut <= `debut` AND `debut` <= :fin");
         $sth->bindValue(":debut", $start); 
+        var_dump($start); 
+        var_dump($end); 
         $sth->bindValue(":fin", $end); 
         $sth->execute(); 
         $result = $sth->fetchAll(PDO::FETCH_COLUMN); 
-
+        var_dump($result); 
+        // OKOKOKOKOKOKOK
         foreach ($result as $id) {
             $reservations[] = $this->get($id);
         }

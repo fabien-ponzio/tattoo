@@ -20,8 +20,11 @@ require_once('../class/class_planning.php');
         $planning = new Planning(); 
         $planning->build_calendar($month, $year); 
 
+        $dateFocus = new Datetime('now');
+        $dateFocus->setTime(07, 00);
+
         $weeklyCalendar = new Planning(); 
-        $weeklyCalendar->displayHtmlTable($inputDate,$ReservationsManager); 
+        $weeklyCalendar->displayHtmlTable($dateFocus); 
     ?>
     </main>
 </body>
