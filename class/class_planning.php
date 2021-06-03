@@ -1,5 +1,5 @@
 <?php 
-require_once('class_reservation');
+require_once('class_reservation.php');
 class Planning
 {
     public $date; 
@@ -98,7 +98,7 @@ class Planning
 
     // génération du semainier 
     public function displayHtmlTable(DateTime $inputDate, ReservationsManager $ReservationsManager){
-        require_once('class_reservation');
+        require_once('class_reservation.php');
         $date = clone $inputDate; 
 
         // Je créée les colonnes vides
@@ -112,7 +112,7 @@ class Planning
 
 
         //$reservation est unn tableau vide 
-        $reservations=[]; 
+        $reservation=[]; 
 
         // CONNEXION A LA BDD
         $db = new Database;
@@ -130,9 +130,12 @@ class Planning
         $result = $sth->fetchAll(PDO::FETCH_ASSOC); 
         var_dump($result);
 
-        // foreach ($result as $reservation) {
-        //     # code...
-        // }
+        foreach ($result as $reservation) {
+            $debut = new Reservation; 
+            $debut->dateFromStringToDateTimeObject($date); 
+            $fin = new Reservation; 
+            $fin->dateFromStringToDateTimeObject($date); 
+        }
 
     } 
 }

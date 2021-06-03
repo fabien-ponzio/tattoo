@@ -19,6 +19,9 @@ require_once('../class/class_planning.php');
         $year = $dateComponents['year']; 
         $planning = new Planning(); 
         $planning->build_calendar($month, $year); 
+
+        $weeklyCalendar = new Planning(); 
+        $weeklyCalendar->displayHtmlTable($inputDate,$ReservationsManager); 
     ?>
     </main>
 </body>
