@@ -114,14 +114,14 @@ class Planning
         }
 
 
-        //$reservation est unn tableau vide 
+        //$reservation est un tableau vide 
         $reservation=[]; 
 
         // CONNEXION A LA BDD
         $db = new Database;
         $conn = $db->connect(); 
         
-        $reservationList = new Reservation();
+        $reservationList = new Reservation('2011-11-06 : 16-30-30');
         $result = $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
 
         var_dump($result);
@@ -131,8 +131,20 @@ class Planning
             $debut->dateFromStringToDateTimeObject($date); 
             $fin = new Reservation; 
             $fin->dateFromStringToDateTimeObject($date); 
+            $reservation->setHours($fin->diff($debut)->format('%h'));
+            echo $reservation;  
         }
 
+        // construction d'un tableau d'heures 
+        for ($i=8; $i < 19; $i++) { 
+            $hour = $i . ':00'; 
+            if (strlen($hour) == 4) {
+                $hour = '0' . $hour; 
+            }
+            $H[] = $hour; 
+        }
+
+        // TABLEAU HTML 
     } 
 }
 

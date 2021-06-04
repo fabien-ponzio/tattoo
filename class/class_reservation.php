@@ -52,7 +52,7 @@ public DateTime $end;
         $db = new Database; 
         $db->connect(); 
         // REQUETE A TAFFER HARKOR
-        $query = $db->conn->prepare("SELECT * FROM reservation INNER JOIN admin ON id_tatoueur = admin.id WHERE reservation.id = $id");       
+        $query = $db->conn->prepare("SELECT `id_tatoueur`, `login`, `description`, `titre`, `debut`, `fin` FROM reservation INNER JOIN admin on id_tatoueur = admin.id;");
         $query->execute(); 
         $reservationInfos = $query->fetch(PDO::FETCH_ASSOC);
         return $reservationInfos;
@@ -123,8 +123,16 @@ public DateTime $end;
             }
             $date = DateTime::createFromFormat('Y#m#d*H#i#s', $date);
         }
-        return $date;
+        return $date->format('Y-m-d H:00:00');
     }
+
+    //     public function formatDateForDb($date){
+    //     if (is_string($date)) {
+    //         $date = DateTime::createFromFormat('Y#m#d*H#i#s', $date);
+    //     }
+    //     return $date->format('Y-m-d H:00:00');
+    // }
+
     
 }
 
