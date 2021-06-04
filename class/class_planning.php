@@ -121,18 +121,27 @@ class Planning
         $db = new Database;
         $conn = $db->connect(); 
         
-        $reservationList = new Reservation('2011-11-06 : 16-30-30');
+        $reservationList = new Reservation($date);
         $result = $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
 
         var_dump($result);
 
         foreach ($result as $reservation) {
+            // $fin = new DateTime('2009-10-11');
+            // $debut = new DateTime('2009-10-13');
+
             $debut = new Reservation; 
             $debut->dateFromStringToDateTimeObject($date); 
             $fin = new Reservation; 
-            $fin->dateFromStringToDateTimeObject($date); 
-            $reservation->setHours($fin->diff($debut)->format('%h'));
-            echo $reservation;  
+            $fin->dateFromStringToDateTimeObject($date);
+            var_dump($fin);
+
+            // var_dump($date); 
+            // $interval = date_diff($debut, $fin);
+            // var_dump($interval);
+            //transformer $date en objet datetime et trouver le type d'objet de $date; 
+            // $reservation->setHours($fin->diff($debut)->format('%h'));
+            // echo $reservation;  
         }
 
         // construction d'un tableau d'heures 
