@@ -6,7 +6,8 @@ class Planning
     public $date; 
     public $month; 
     public $year; 
-    public $daysOfWeek; 
+    public $daysOfWeek;
+    public $hours; 
     public DateTime $start; 
     public DateTime $end; 
 
@@ -124,22 +125,20 @@ class Planning
         $reservationList = new Reservation($date);
         $result = $reservationList->getByDate($day[1], $date->add(new DateInterval('P1D')));
 
-        var_dump($result);
-
         foreach ($result as $reservation) {
-            
-            $date = new Reservation; 
+            $resa = new Reservation(); 
 
-            $debut = $date->dateFromStringToDateTimeObject($date); 
-            $fin = $date->dateFromStringToDateTimeObject($date);
+           $debut = $resa->dateFromStringToDateTimeObject($reservation['debut']); 
+           var_dump($debut); 
+
+           $fin = $resa->dateFromStringToDateTimeObject($reservation['fin']);
             var_dump($fin);
 
             var_dump($date); 
             $interval = date_diff($debut, $fin);
             var_dump($interval);
             //transformer $date en objet datetime et trouver le type d'objet de $date; 
-            $reservation->setHours($fin->diff($debut)->format('%h'));
-            echo $reservation;  
+            $reservation = ($fin->diff($debut)->format('%h'));
         }
 
         // construction d'un tableau d'heures 
@@ -167,15 +166,20 @@ class Planning
             foreach ($day as $days) {
                 if(is_object($days)){
                     $currentDateTime = $days->format('Y/m/d') . ' ' . $hour; 
+                } else {
+                    continue;
                 }
                 if(empty($days)){
                     echo"<th>$hour</th>"; 
                 }else {
                     $html = ''; 
                 }
-                foreach ($reservationList as $reservation) {
-                    $currentDateTime = $days->format('Y/m/d') . ' ' . $hour; 
-                    if($this->isDateInBetween($currentDateTime, [$reservation->debut(), $reservation->fin()])){
+                var_dump($result);
+                foreach ($result as $reservation) {
+                    if(is_object($days)){
+                        $currentDateTime = $days->format('Y/m/d') . ' ' . $hour; 
+                    }
+                    if($this->isDateInBetween($currentDateTime, [$reservation["debut"], $reservation["fin"]])){
                         if ($reservation->counter() == 0) {
                             $html .= '<td rowspan="' .$reservation->hours() . '"class="">'; 
                             $html .= '<a class="text-decoration-none" href=reservation.php?=' .$reservation->id() . '>'; 

@@ -117,13 +117,16 @@ public DateTime $end;
     /** Return a DateTime object is string formated as Y#m#d*H#i#s or Y#m#d*H#i is given */
     public static function dateFromStringToDateTimeObject($date)
     {
+        var_dump ($date);
         if (is_string($date)) {
             if (strlen($date) == 16) {
                 $date .= ':00';
             }
             $date = DateTime::createFromFormat('Y#m#d*H#i#s', $date);
+            var_dump($date); 
         }
-        return $date->format('Y-m-d H:00:00');
+        return $date;
+        // return $date->format('Y#m#d*H#i#s');
     }
 
     //     public function formatDateForDb($date){
