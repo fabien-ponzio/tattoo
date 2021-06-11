@@ -1,5 +1,5 @@
 <?php 
- require_once("../class/class_contact.php");  
+ require_once("../class/contact.php");  
 // require_once("../class/upload.php");
 ?>
 <!DOCTYPE html>
