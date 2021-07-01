@@ -10,7 +10,7 @@
 
 <?php 
     require_once('../class/dbconnect.php');
-    require_once('../class/class_admin.php');
+    require_once('../class/admin.php');
     if (isset($_POST['connectAdmin'])) {
         $admin = new Admin;
         $admin->connectAdmin();
