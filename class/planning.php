@@ -1,5 +1,5 @@
 <?php 
-require_once('class_reservation.php');
+require_once('reservation.php');
 require_once('dbconnect.php'); 
 class Planning
 {
@@ -100,7 +100,7 @@ class Planning
 
     // génération du semainier 
     public function displayHtmlTable(DateTime $inputDate){
-        require_once('class_reservation.php');
+        require_once('reservation.php');
         // on clone parce que on abesoin de dupliquer l'objet DATE
         $date = clone $inputDate; 
 

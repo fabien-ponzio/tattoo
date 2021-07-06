@@ -8,7 +8,9 @@ class Admin
     public $login;
     private $password;
     private $droit; 
+    
  // CONNEXION DE L'ADMIN
+
     public function connectAdmin(){
         $login = $_POST['login'];
         $password = $_POST['password'];
@@ -55,6 +57,7 @@ class Admin
             echo 'veuillez remplir les champs';
         }
     }
+
 // AJOUT D'ADMIN
     public function registerAdmin(){
     $login = $_POST['login'];
@@ -148,6 +151,7 @@ class Admin
     $deleteAdmin->bindValue(":login", $login, PDO::PARAM_INT);
     $deleteAdmin->execute();
     }
+
 
 }
 

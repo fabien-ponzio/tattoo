@@ -1,5 +1,5 @@
 <?php 
-require_once('../class/class_planning.php');
+require_once('../class/planning.php');
 // ini_set('memory_limit', '1024M');
  ?>
 <!DOCTYPE html>

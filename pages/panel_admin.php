@@ -10,6 +10,8 @@
 <?php
 require_once('../class/dbconnect.php');
 require_once('../class/admin.php');
+require_once('../class/upload.php');
+
 
 if (isset($_POST['register'])) {
     $ajoutAdmin = new Admin;
@@ -23,10 +25,24 @@ if (isset($_POST['deleteAdmin'])) {
 
 ?>
     <main>
-    <form action="../class/class_admin.php">
+
+    <form method="POST" action="../class/upload.php" enctype="multipart/form-data">
+            <label> adresse url de l'image </label>
+            <input type="file" id="photo" name="photo">
+            <input type="submit" name="submit" value="submit">
+    </form>
+
+    <form>
     
-    <label for="imgUpload">Télécharger image</label>
-    <input type="file" name="imgUpload">
+    
+    <!-- <label for="imgUpload">Télécharger image</label>
+    <input type="file" name="imgUpload"> -->
+
+    <?php 
+    // if (isset($_POST['publier'])){
+    // $pictures = new Upload;
+    // $pictures->insertPics();
+// } ?>
 
     <label for="pic_name">Nom de l'image</label>
     <input type="text">
