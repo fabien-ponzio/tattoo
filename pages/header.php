@@ -1,23 +1,60 @@
-<link rel="stylesheet" href="../css/header.css">
-<header class="header" data-scroll>
-  <div class="container">
-    <h1>Header</h1>
+<?php
+session_start();
+require_once('../class/display.php'); 
+$tatoueur = new Display(); 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!--  STYLE STYLE STYLE STYLE STYLE -->
+  <link rel="stylesheet" href="../css/header.css">
+  <!-- POLICE TEXTE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap" rel="stylesheet">
+  <!-- font-family: 'Montserrat', sans-serif; -->
+  <!--  STYLE STYLE STYLE STYLE STYLE -->
+  <title>###########</title>
+</head>
+<body>
+  <header>
+<!--  -->
+<div class="wrapper"> 
+  <div class="logoHeader">
+    <img src="../images/logo.png" alt="logo">
   </div>
-</header>
-<main class="main">
-  <div class="container">
-    <h2>Check out <a href="https://scroll-out.github.io/">scroll-out.github.io</a> for info and documentation.</h2>
+  <div class="headerLink">
+    <a href="">Accueil</a>
+    <div class="dropdown">
+    <a class="dropbtn">Artistes</a>
+    <div class="dropdown-content">
+    <?php 
+      $artists = $tatoueur->getArtists();
+      foreach ($artists as $tatoueur){?>
+      <a><?= $tatoueur['nom']?></a>
+          <?php
+          }
+          ?>
+    </div>
+    </div>
+    <?php 
+            // var_dump($_SESSION);
+
+      if (($_SESSION['admin']['droit'])==1337){
+        ?>
+        <a href="panel_admin.php">ADMINADMINADMIN</a>
+    <?php
+      }
     
-    <h3>Placeholder text👇 </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptates praesentium earum eveniet optio, blanditiis libero omnis suscipit veniam cum.</p>
-    
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis quod et quo velit accusantium dignissimos, est mollitia unde dolore quae cum, dicta repudiandae distinctio inventore quidem corporis similique laborum tempore, tenetur atque cupiditate. Sint id ratione expedita accusantium impedit cumque dignissimos fugiat, voluptate nihil officiis asperiores, ipsa ipsum deleniti doloremque harum sunt in minima consectetur placeat fugit libero dolores quia quod tempore. Quidem molestiae odio, quas architecto dolore ipsam ratione nostrum fugit iusto exercitationem labore quis rerum, temporibus quibusdam veniam.</p>
-    
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptates praesentium earum eveniet optio, blanditiis libero omnis suscipit veniam cum.</p>
-    
-    <h3>Ipsum amet</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptates praesentium earum eveniet optio, blanditiis libero omnis suscipit veniam cum.</p>
-    
+    ?>
+    <a href="">A propos</a>
+    <a href="">Contact</a>
+    <a href="">F.A.Q</a>
   </div>
-</main>
-    
+</div>
+  </header>
+

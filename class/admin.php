@@ -7,7 +7,7 @@ class Admin
     private $id;
     public $login;
     private $password;
-    private $droit; 
+    public $droit; 
     
  // CONNEXION DE L'ADMIN
 
@@ -21,7 +21,7 @@ class Admin
             $db = new Database;
             $db->connect();
 
-            $connectAdmin = $db->conn->prepare("SELECT * FROM admin WHERE login = :login");
+            $connectAdmin = $db->conn->prepare("SELECT * FROM tatoueur WHERE login = :login");
             $connectAdmin->bindValue(':login', $login, PDO::PARAM_STR); 
             $connectAdmin->execute(); 
             $admin = $connectAdmin->fetch();
@@ -31,7 +31,6 @@ class Admin
         }
         if (!empty($login)) {
             echo $password .  "<br>"; 
-            echo $admin['password'];
             if (password_verify($password, $admin['password'])) {
                 $this->id = $admin['id']; 
                 $this->login = $admin['login']; 
@@ -71,14 +70,14 @@ class Admin
     if (!empty($login) && !empty($password) && !empty($confirmPW)) {
         $db = new Database;
         $db->connect();
-        $register = $db->conn->prepare("SELECT login FROM admin WHERE login=:login");
+        $register = $db->conn->prepare("SELECT login FROM tatoueur WHERE login=:login");
         $register->bindValue(":login", $login, PDO::PARAM_STR); 
         $register->execute();
         $fetch = $register->fetch();
             if (!$fetch){
                 if ($password == $confirmPW) {
                 $cryptedpass = password_hash($password, PASSWORD_ARGON2I); 
-                $insert = $db->conn->prepare("INSERT INTO admin (login, password, id_droit)  VALUES (:login, :cryptedpass, 1337)");
+                $insert = $db->conn->prepare("INSERT INTO tatoueur (login, password, id_droit)  VALUES (:login, :cryptedpass, 1337)");
                 $insert->bindValue (":login", $login, PDO::PARAM_STR); 
                 $insert->bindValue (":cryptedpass", $cryptedpass, PDO::PARAM_STR); 
                 $insert->execute();
@@ -98,7 +97,7 @@ class Admin
     public function AdminTable(){
         $db = new Database;
         $db->connect();
-        $tableUser = $db->conn->query("SELECT d.nom, a.login, a.id_droits, d.id FROM droit d INNER JOIN admin a ON a.id_droit = d.id WHERE a.id_droit = 1337"); 
+        $tableUser = $db->conn->query("SELECT d.nom, a.login, a.id_droits, d.id FROM droit d INNER JOIN tatoueur a ON a.id_droit = d.id WHERE a.id_droit = 1337"); 
         // SI PAS DE VARIABLE = PAS DE bindValue 
         $result = $tableUser->fetchAll(PDO::FETCH_ASSOC);
         echo"<table> <th> Admin </th>"; 
@@ -118,7 +117,7 @@ class Admin
 
         var_dump($conn);
 
-        $drop = $conn->query("SELECT * FROM admin");
+        $drop = $conn->query("SELECT * FROM tatoueur");
 
         while($fetch = $drop->fetch(PDO::FETCH_ASSOC)){
             $tableau[$i][] = $fetch['id'];
@@ -147,7 +146,7 @@ class Admin
     $db = new Database;
     $db->connect();
     
-    $deleteAdmin =  $db->conn->prepare("DELETE FROM admin WHERE id = :login");
+    $deleteAdmin =  $db->conn->prepare("DELETE FROM tatoueur WHERE id = :login");
     $deleteAdmin->bindValue(":login", $login, PDO::PARAM_INT);
     $deleteAdmin->execute();
     }
