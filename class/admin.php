@@ -25,7 +25,6 @@ class Admin
             $connectAdmin->bindValue(':login', $login, PDO::PARAM_STR); 
             $connectAdmin->execute(); 
             $admin = $connectAdmin->fetch();
-            var_dump($admin);
         }else{
         echo"aeoihfaelbgaelbjg";
         }
@@ -36,6 +35,7 @@ class Admin
                 $this->login = $admin['login']; 
                 $this->password = $admin['password']; 
                 $this->droit = $admin['id_droit']; 
+                var_dump($admin); 
 
                 $_SESSION['admin'] = [
                 'id' =>
@@ -45,7 +45,7 @@ class Admin
                 'password' =>
                     $this->password, 
                 'droit' => 
-                    $this->droits, 
+                    $this->droit, 
                 ];
                 var_dump($_SESSION['admin']);
                 header('location:../pages/panel_admin.php');

@@ -1,3 +1,8 @@
+@font-face{
+  font-family: Pilar;
+  src: url(../fonts/Pilar-Display-Typeface.ttf);
+}
+
 .logoHeader{
   display: flex;
   flex-direction: row;
@@ -9,22 +14,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
-
-@font-face {
-  font-family: ;
-  src: url(../fonts/Pilar-Display-Typeface.ttf);
-  font-style: ;
-  font-weight: ;
-}
-
-.artistLink{
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  font-family: Pilar;
 }
 
 /* Dropdown Button */
@@ -34,6 +24,7 @@
   padding: 16px;
   font-size: 16px;
   border: none;
+  font-family: Pilar;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -52,6 +43,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 200px;
+  font-family: Pilar;
 }
 
 /* Dropdown Button */
@@ -61,7 +53,6 @@
   padding: 16px;
   font-size: 16px;
   border: none;
-  font-family: "Arvo", serif;
 }
 
 /* The container <div> - needed to position the dropdown content */

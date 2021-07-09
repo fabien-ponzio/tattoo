@@ -41,19 +41,18 @@ $tatoueur = new Display();
           ?>
     </div>
     </div>
-    <?php 
-            // var_dump($_SESSION);
-
-      if (($_SESSION['admin']['droit'])==1337){
-        ?>
-        <a href="panel_admin.php">ADMINADMINADMIN</a>
-    <?php
-      }
-    
-    ?>
     <a href="">A propos</a>
     <a href="">Contact</a>
     <a href="">F.A.Q</a>
+    <?php 
+            // var_dump($_SESSION);
+      if (($_SESSION['admin']['droit'])==1337){
+        ?>
+        <a href="panel_admin.php">Admin</a>
+    <?php
+      }
+    ?>
+
   </div>
 </div>
   </header>
