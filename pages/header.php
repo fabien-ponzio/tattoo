@@ -1,7 +1,12 @@
 <?php
-session_start();
-require_once('../class/display.php'); 
-$tatoueur = new Display(); 
+$page = "index";
+
+if($page=="index"){
+  require_once('class/classes_path.php');
+  }
+  else{
+  require_once('../class/classes_path.php'); 
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +38,7 @@ $tatoueur = new Display();
     <a class="dropbtn">Artistes</a>
     <div class="dropdown-content">
     <?php 
+      $tatoueur = new Display(); 
       $artists = $tatoueur->getArtists();
       foreach ($artists as $tatoueur){?>
       <a><?= $tatoueur['nom']?></a>
@@ -45,14 +51,12 @@ $tatoueur = new Display();
     <a href="">Contact</a>
     <a href="">F.A.Q</a>
     <?php 
-            // var_dump($_SESSION);
       if (($_SESSION['admin']['droit'])==1337){
         ?>
         <a href="panel_admin.php">Admin</a>
     <?php
       }
-    ?>
-
+    ?> 
   </div>
 </div>
   </header>

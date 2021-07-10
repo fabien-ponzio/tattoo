@@ -1,97 +1,59 @@
-:root {
-  --bg: #dcdde1;     
-  --color-icon: #535c68;  
-  --social-icon1: #600127;
-  --social-icon2: #3b5999;
-  --social-icon3: #e4405f;
-  --social-icon4: #cd201f;
-  --social-icon5: #0077B5;  
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
 }
 
-* {
-  margin: 0;
-  padding: 0;  
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
 }
 
-.social {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  background: var(--bg);
-  z-index: -10;
+.footer-basic li {
+  padding:0 10px;
 }
 
-.icon-list {
-  width: 100%;
-  max-width: 50rem;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: space-between;
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
 }
 
-.icon-item {
-  list-style: none
+.footer-basic ul a:hover {
+  opacity:1;
+  transition: 0.3ms;
+  color:#600127;
 }
 
-.icon-link {  
-  display: inline-flex;
-  font-size: 3rem;  
-  text-decoration: none;  
-  color: var(#535c68);
-  width: 6rem;
-  height: 6rem;   
-  transition: .5s linear;
-  position: relative;
-  z-index: 1;
-  margin: auto
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
 }
 
-.icon-link:hover {
-  color: #fff;
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  margin:0 8px;
+  color:#600127;
+  opacity:0.75;
 }
 
-.icon-link i {
-  margin: auto;    
+.footer-basic .social > a:hover {
+  opacity:0.9;
 }
 
-.icon-link::before {  
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 6rem;
-  height: 6rem;
-  background: #000;
-  border-radius: 50%;
-  z-index: -1;
-  transform: scale(0);
-  transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
-}
-  
-.icon-link:hover::before {  
-  transform: scale(1);
-}
-
-.icon-item:nth-child(1) a:hover:before { 
-  background: var(--social-icon1); 
-}
-
-.icon-item:nth-child(2) a:hover:before { 
-  background: var(--social-icon2); 
-}
-
-.icon-item:nth-child(3) a:hover:before { 
-  background: var(--social-icon3); 
-}
-
-.icon-item:nth-child(4) a:hover:before { 
-  background: var(--social-icon4); 
-}
-
-.icon-item:nth-child(5) a:hover:before { 
-  background: var(--social-icon5); 
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
 }

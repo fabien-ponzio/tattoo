@@ -1,3 +1,9 @@
+<?php 
+$page = 'index';
+require_once('pages/header.php'); 
+require_once('pages/footer.php'); 
+require_once('class/classes_path.php');
+?>
 <header>
     <link rel="stylesheet" href="./css/index.css">
   <div class="overlay"></div>

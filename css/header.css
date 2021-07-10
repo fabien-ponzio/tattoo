@@ -8,14 +8,18 @@
   flex-direction: row;
   justify-content: center;
 }
-
+.logoHeader img{
+  width:50%
+}
 .headerLink{
   margin: 50px; 
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   font-family: Pilar;
+  align-items: center;
 }
+
 
 /* Dropdown Button */
 .dropbtn {
@@ -60,7 +64,7 @@
   position: relative;
   display: inline-block;
   font-family: "Arvo", serif;
-  font-size: x-large;
+  font-size: 16px;
   /* width: 200px; */
 }
 
@@ -96,11 +100,11 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  color: white;
+  color: #600127;
 }
 
 .headerLink{
-  padding: 14px;
+  padding: 15px;
   color: #faf3e0;
   background-color: #600127;
 }
@@ -109,6 +113,11 @@
   text-decoration: none;
   color: #faf3e0;
   background-color: #600127;
+}
+
+.headerLink a:hover{
+  background-color: #faf3e0;
+  color: #600127;
 
 }
 
