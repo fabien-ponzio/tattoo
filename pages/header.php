@@ -1,13 +1,4 @@
-<?php
-$page = "index";
 
-if($page=="index"){
-  require_once('class/classes_path.php');
-  }
-  else{
-  require_once('../class/classes_path.php'); 
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +8,8 @@ if($page=="index"){
   
   <!--  STYLE STYLE STYLE STYLE STYLE -->
   <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/foooter.css">
+
   <!-- POLICE TEXTE -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,10 +20,18 @@ if($page=="index"){
 </head>
 <body>
   <header>
+  <?php
+if($page ==="index"){
+  require_once('class/classes_path.php');
+  }
+  else{
+  require_once('../class/classes_path.php'); 
+  }
+?>
 <!--  -->
 <div class="wrapper"> 
   <div class="logoHeader">
-    <img src="../images/logo.png" alt="logo">
+    <img src="<?php echo $path_logo ?>" alt="logo">
   </div>
   <div class="headerLink">
     <a href="">Accueil</a>

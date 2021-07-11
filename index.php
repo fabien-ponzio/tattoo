@@ -1,11 +1,11 @@
 <?php 
 $page = 'index';
 require_once('pages/header.php'); 
-require_once('pages/footer.php'); 
-require_once('class/classes_path.php');
 ?>
 <header>
-    <link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="./css/index.css">
   <div class="overlay"></div>
   <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
     <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
@@ -37,3 +37,5 @@ require_once('class/classes_path.php');
     </div>
   </div>
 </section>
+
+<?php require_once('pages/footer.php'); ?>
