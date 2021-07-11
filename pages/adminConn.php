@@ -1,16 +1,16 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-</head>
+<?php 
+  $page = "Connexion Admin";
+    if($page ==="index"){
+      require_once('class/classes_path.php');
+      }
+      else{
+      require_once('../class/classes_path.php'); 
+      }
+      require_once('header.php');
+?>
+    <title><?=$page?></title>
 
 <?php 
-    require_once('../class/dbconnect.php');
-    require_once('../class/admin.php');
     if (isset($_POST['connectAdmin'])) {
         $admin = new Admin;
         $admin->connectAdmin();
@@ -52,5 +52,4 @@
     <a href="#">
 
     </form>
-</body>
-</html>
+<?php require_once('footer.php'); ?> 

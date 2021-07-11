@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin_panel</title>
+<?php 
+$page = "Panel Admin"; 
+require_once('header.php'); 
+if($page ==="index"){
+    require_once('class/classes_path.php');
+    }
+    else{
+    require_once('../class/classes_path.php'); 
+    }
+?>
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+    <title><?= $page ?></title>
 </head>
 <body>
 <?php
-require_once('../class/dbconnect.php');
-require_once('../class/admin.php');
-require_once('../class/upload.php');
-
 
 if (isset($_POST['register'])) {
     $ajoutAdmin = new Admin;
@@ -95,5 +97,4 @@ if (isset($_POST['deleteAdmin'])) {
     </form>
 
     </main>
-</body>
-</html>
+<?php require_once('footer.php'); ?>

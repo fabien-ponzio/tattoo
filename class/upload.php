@@ -136,7 +136,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer."; 
         }
     } else{
-        echo "Error: " . $_FILES["photo"]["error"];
     }
 }
 ?>

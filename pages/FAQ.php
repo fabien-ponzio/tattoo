@@ -1,5 +1,5 @@
 <?php
-$page="Artistes"; 
+$page="F.A.Q"; 
 require_once('header.php');
 if($page ==="index"){
     require_once('class/classes_path.php');

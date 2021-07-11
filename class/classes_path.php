@@ -17,6 +17,16 @@ if ($page === "index")
     $path_planning = 'class/planning.php'; 
     $path_reservation = 'class/reservation.php';
     $path_upload = 'class/upload.php'; 
+    //CHEMINS PAGES 
+    $indexPath = ''; 
+    $adminConnPath ='pages/adminConn.php'; 
+    $contactPath='pages/contact.php';
+    $registerAdminPath='pages/inscription_admin.php';
+    $AdminPanelPath='pages/panel_admin.php';  
+    $planningPath='pages/planning.php'; 
+    $reservationPath='pages/reservation_form.php'; 
+    $tatoueursPath='pages/tatoueurs.php'; 
+    $FAQpath = 'pages/FAQ.php';
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = 'images/logo.PNG'; 
 }else{
@@ -35,7 +45,17 @@ if ($page === "index")
     $path_display='../class/display.php';
     $path_planning = '../class/planning.php'; 
     $path_reservation = '../class/reservation.php';
-    $path_upload = '../class/upload.php';  
+    $path_upload = '../class/upload.php'; 
+    //CHEMINS PAGES 
+    $indexPath = '../index.php'; 
+    $adminConnPath ='../pages/adminConn.php'; 
+    $contactPath='../pages/contact.php';
+    $registerAdminPath='../pages/inscription_admin.php';
+    $AdminPanelPath='../pages/panel_admin.php';  
+    $planningPath='../pages/planning.php'; 
+    $reservationPath='../pages/reservation_form.php'; 
+    $tatoueursPath='../pages/tatoueurs.php'; 
+    $FAQpath = '../pages/FAQ.php';
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = '../images/logo.PNG'; 
 }

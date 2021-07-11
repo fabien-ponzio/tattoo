@@ -1,3 +1,19 @@
+<?php 
+$page = "Formulaire de reservation";
+require_once('header.php');
+if($page ==="index"){
+    require_once('class/classes_path.php');
+    }
+    else{
+    require_once('../class/classes_path.php'); 
+    }
+?>
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+    <title><?= $page ?></title>
+
+<main>
+        
 <form method="POST">
     <label for="title"> Titre:</label>
     <input class="BookingInput" type="text" name="title" id="title" placeholder="Entrez votre titre ici"/><br />
@@ -18,3 +34,5 @@
     <input type="reset"  class="BookingInput" name='reset' value="Réinitialiser">
     <input type="submit" class="BookingInput" name='submit' value="Valider">
 </form>
+</main>
+<?php  require_once('footer.php');?>

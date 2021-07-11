@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap" rel="stylesheet">
   <!-- font-family: 'Montserrat', sans-serif; -->
   <!--  STYLE STYLE STYLE STYLE STYLE -->
-  <title>###########</title>
+  <title><?= $page; ?></title>
 </head>
 <body>
   <header>
@@ -31,12 +31,12 @@ if($page ==="index"){
 <!--  -->
 <div class="wrapper"> 
   <div class="logoHeader">
-    <img src="<?php echo $path_logo ?>" alt="logo">
+    <img src="<?= $path_logo ?>" alt="logo">
   </div>
   <div class="headerLink">
-    <a href="">Accueil</a>
+    <a href="<?= $indexPath ?>">Accueil</a>
     <div class="dropdown">
-    <a class="dropbtn">Artistes</a>
+    <a href="<?= $tatoueursPath ?>" class="dropbtn">Artistes</a>
     <div class="dropdown-content">
     <?php 
       $tatoueur = new Display(); 
@@ -48,9 +48,8 @@ if($page ==="index"){
           ?>
     </div>
     </div>
-    <a href="">A propos</a>
-    <a href="">Contact</a>
-    <a href="">F.A.Q</a>
+    <a href="<?= $contactPath ?>">Contact</a>
+    <a href="<?= $FAQpath ?>">F.A.Q</a>
     <?php 
       if (($_SESSION['admin']['droit'])==1337){
         ?>
