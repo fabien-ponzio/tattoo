@@ -38,5 +38,5 @@ if (isset($_POST['contact'])) {
     var_dump($_POST);
     var_dump($txt); 
 }
-echo"hello";
+//echo"hello";
 ?>

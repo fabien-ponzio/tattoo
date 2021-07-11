@@ -28,10 +28,51 @@ if($page ==="index"){
   require_once('../class/classes_path.php'); 
   }
 ?>
-<!--  -->
 <div class="wrapper"> 
+  <!-- RESPONSIVE BURGER NAV -->
+<nav role="navigation" class="burgerMenu">
+  <div id="menuToggle">
+
+    <input type="checkbox" />
+    
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <ul id="menu">
+      <a href="#"><li>Accueil</li></a>
+      <a class="dropResponsive" href="#">
+        <li>Artistes</li>
+          <div class="dropResponsive-content">
+          <?php 
+            $tatoueur = new Display(); 
+            $artists = $tatoueur->getArtists();
+            foreach ($artists as $tatoueur){
+              if ($tatoueur['nom'] != ''){ ?>
+                <p><?= $tatoueur['nom']?></p>
+            <?php
+              }
+            }
+          ?>
+          </div>
+      </a>
+      <a href="#"><li>A propos</li></a>
+      <a href="#"><li>Contact</li></a>
+      <a href="#"><li>F.A.Q</li></a>
+      <?php 
+      if (($_SESSION['admin']['droit'])=== '1337'){
+        ?>
+        <a href="panel_admin.php"><li>Admin</li></a>
+      <?php
+      }
+      ?> 
+    </ul>
+  </div>
+</nav>
+
+
   <div class="logoHeader">
-    <img src="<?= $path_logo ?>" alt="logo">
+    <img src="<?= $path_logo ?>" alt="logo" width="800px">
   </div>
   <div class="headerLink">
     <a href="<?= $indexPath ?>">Accueil</a>
@@ -41,11 +82,13 @@ if($page ==="index"){
     <?php 
       $tatoueur = new Display(); 
       $artists = $tatoueur->getArtists();
-      foreach ($artists as $tatoueur){?>
-      <a><?= $tatoueur['nom']?></a>
+      foreach ($artists as $tatoueur){
+        if ($tatoueur['nom'] != ''){ ?>
+          <a><?= $tatoueur['nom']?></a>
           <?php
           }
-          ?>
+        }
+      ?>
     </div>
     </div>
     <a href="<?= $contactPath ?>">Contact</a>
