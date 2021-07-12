@@ -33,27 +33,26 @@
     <input type="submit" name="connectAdmin">
 
     </form> -->
+    <form action="" method="POST">
+  <div class='bold-line'></div>
+<div class="container">
+  <div class="window">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="welcome">Administrateur</div>
+      <div class="subtitle">Inscris un nouveau tatoueur</div>
+      <div class="input-fields">
+      <input type="text" name="login" required="" placeholder="login" class="input-line full-width">
+      <input type="password" name="password" required="" placeholder="Mot de passe" class="input-line full-width">
+      <input type="password" name="confirmPW" required="" placeholder="confirmez le mot de passe" class="input-line full-width">
+      <div><input type="submit" name="register" class="ghost-round full-width" value="Go"></div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+
     </main>
 <?php require_once('footer.php');
 ob_end_flush(); ?> 
 
-<div class="form">
-      <div class="title">Administrateur</div>
-      <div class="subtitle">connectes-toi!</div>
-      <div class="input-container ic1">
-        <input id="firstname" class="input" type="text" placeholder=" " />
-        <div class="cut"></div>
-        <label for="firstname" class="placeholder">First name</label>
-      </div>
-      <div class="input-container ic2">
-        <input id="lastname" class="input" type="text" placeholder=" " />
-        <div class="cut"></div>
-        <label for="lastname" class="placeholder">Last name</label>
-      </div>
-      <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " />
-        <div class="cut cut-short"></div>
-        <label for="email" class="placeholder">Email</>
-      </div>
-      <button type="text" class="submit">submit</button>
-    </div>

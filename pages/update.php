@@ -19,23 +19,30 @@ if($page ==="index"){
 ?>
 
 <body>
+    <link rel="stylesheet" href="../css/update.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <main>
-        <form action="" method="POST">
-            <h1>Mettez à jour votre profil</h1>
-
-            <label for="name">Spécifiez votre nom:</label>
-            <input type="text" name="name" required="">
-
-            <label for="newLogin">Nouveau Login:</label>
-            <input type="text" name="newLogin" required="">
-
-            <label for="newPassword">Nouveau mot de passe:</label>
-            <input type="password" name="newPassword" required="">
-
-            <label for="ConfirmPW">Confirmez votre nouveau mot de passe :</label>
-            <input type="password" name="confirmPassword" required="">
-
-            <input type="submit" name="updateAdmin" value="Mettre à jour mon profil">
-        </form>
+    <form action="" method="POST">
+  <div class='bold-line'></div>
+<div class="container">
+  <div class="window">
+    <div class="overlay"></div>
+    <div class="content">
+      <div class="welcome">Administrateur</div>
+      <div class="subtitle">Mets a jour ton profil</div>
+      <div class="input-fields">
+        <input type="text" name="name" required="" placeholder="Nom" class="input-line full-width">
+        <input type="text" name="newLogin" required="" placeholder="Login" class="input-line full-width">
+        <input type="password" name="newPassword" required="" placeholder="Mot de passe" class="input-line full-width">
+        <input type="password" name="confirmPassword" required="" placeholder="confirmez le mot de passe" class="input-line full-width">
+      <div><input type="submit" name="updateAdmin" class="ghost-round full-width" value="Mettre a jour le profil"></div>
+      </div>
+    </div>
+  </div>
+  </form>
     </main>
 <?php require_once('footer.php') ?>
+
+
+</div>
