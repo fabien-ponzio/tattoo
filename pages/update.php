@@ -12,8 +12,9 @@ if($page ==="index"){
 
 <?php  
     if (isset($_POST['updateAdmin'])) {
+        //var_dump($_POST['confirmPassword']);
         $admin = new Admin;
-        $admin->updateAdmin($_POST['name'], $_POST['newLogin'], $_POST['newPassword'], $_POST['confirmPW'], $_SESSION['admin']['id']);
+        $admin->updateAdmin($_POST['name'], $_POST['newLogin'], $_POST['newPassword'], $_POST['confirmPassword'], $_SESSION['admin']['id']);
     }
 ?>
 
@@ -32,7 +33,7 @@ if($page ==="index"){
             <input type="password" name="newPassword" required="">
 
             <label for="ConfirmPW">Confirmez votre nouveau mot de passe :</label>
-            <input type="password" name="confirmPW" required="">
+            <input type="password" name="confirmPassword" required="">
 
             <input type="submit" name="updateAdmin" value="Mettre à jour mon profil">
         </form>

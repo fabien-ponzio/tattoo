@@ -3,9 +3,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" href="../css/footer.css">
 
+<?php 
+    if (isset($_POST['connectAdmin'])) {
+        $admin = new Admin;
+        $admin->connectAdmin();
+}?>
 <body>
+  
 <div class="footer-basic">
   <footer>
+    <div>
+      <form action="" method="POST">
+
+      <p>Admin ?</p>
+      <label for="login">Login:</label>
+      <input type="text" name="login" required="">
+      
+      <label for="password">Mot de passe:</label>
+      <input type="password" name="password" required="">
+
+      <input type="submit" name="connectAdmin">
+
+      </form>
+    </div>
       <div class="social">
         <a href="#"><i class="icon ion-social-instagram"></i></a>
         <a href="#"><i class="icon ion-social-snapchat"></i></a>
