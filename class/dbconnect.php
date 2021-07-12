@@ -24,12 +24,6 @@ public function connect(){
     }
 }
 
-// DECONNEXION DE LA SESSION
-public function disconnect(){
-    session_unset();
-    session_destroy();
-}
-
 }
 
 ?>

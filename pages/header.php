@@ -63,9 +63,10 @@ if($page ==="index"){
       if (($_SESSION['admin']['droit'])=== '1337'){
         ?>
         <a href="panel_admin.php"><li>Admin</li></a>
+        <a href="#"><li><button type="submit" href="#" name="logout" value="logout">déco</button></li></a>
       <?php
       }
-      ?> 
+      ?>
     </ul>
   </div>
 </nav>
@@ -94,12 +95,22 @@ if($page ==="index"){
     <a href="<?= $contactPath ?>">Contact</a>
     <a href="<?= $FAQpath ?>">F.A.Q</a>
     <?php 
+    if (isset($_SESSION['admin'])) {
       if (($_SESSION['admin']['droit'])==1337){
         ?>
         <a href="panel_admin.php">Admin</a>
-    <?php
+        
+        <?php 
+        if($page ==="index"){
+            echo '<a href="class/logout.php" name="logout">Deconnexion</a>';
+          }
+          else{
+            echo '<a href="../class/logout.php" name="logout">Deconnexion</a>';
+
+          }
+        }
       }
-    ?> 
+        ?>
   </div>
 </div>
   </header>

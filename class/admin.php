@@ -82,6 +82,7 @@ class Admin
                 $insert->bindValue (":cryptedpass", $cryptedpass, PDO::PARAM_STR); 
                 $insert->execute();
                 echo"Nouvel administrateur ajouté";
+                header('location:../pages/adminConn.php');
                 }else{
                     echo "Les mots de passe ne correspondent pas"; 
                 }
@@ -92,6 +93,42 @@ class Admin
             echo"veuillez remplir tous les champs";
         }
     }
+// UPDATE ADMIN
+    public function updateAdmin($name, $newLogin, $newPassword, $confirmPW, $myID){
+    $name = htmlspecialchars(trim($name));
+    $newLogin = htmlspecialchars(trim($newLogin));
+    $newPassword = htmlspecialchars(trim($newPassword));
+    $confirmPW = htmlspecialchars(trim($confirmPW));
+    $id = $myID;
+    var_dump($_SESSION); 
+    if (!empty($name) && !empty($newLogin) && !empty($newPassword) && !empty($confirmPW) && !empty($id)){
+            //$db = new Database; 
+            //$db->connect();
+            // $select = $db->conn->prepare("SELECT * FROM tatoueur WHERE id =: myID"); 
+            // $select->bindValue(":myID", $myID);
+            // $select->execute();
+            // $fetch = $select->fetch(PDO::FETCH_ASSOC);
+
+            if($confirmPW == $newPassword){
+                echo "lesang"; 
+                $cryptedpass = password_hash($newPassword, PASSWORD_ARGON2I);
+                $db = new Database; 
+                $db->connect();
+                $update = $db->conn->prepare("UPDATE tatoueur SET nom = :nom, login = :newLogin, password = :cryptedpass WHERE id = $id"); 
+                $update->bindValue(":name", $name, PDO::PARAM_STR);
+                $update->bindValue(":newPassword", $cryptedpass, PDO::PARAM_STR);
+                $update->bindValue(":newLogin", $newLogin, PDO::PARAM_STR);
+                $update->execute(); 
+                // header('location:../pages/panel_admin.php'); 
+            }else {
+                echo "Confimation de votre mot de passe incorrecte"; 
+            }
+        }else {
+            echo "Veuillez remplir les champs pour mettre à jour votre profil"; 
+        }
+
+    }
+
 // TABLE DES ADMIN - ON DISPLAY LES ADMIN DANS UN TABLEAU AVEC LA POSSIBILITE DE LES SUPPRIMER
 
     public function AdminTable(){
@@ -115,7 +152,7 @@ class Admin
         $conn = $db->connect();
         $i = 0;
 
-        var_dump($conn);
+        // var_dump($conn);
 
         $drop = $conn->query("SELECT * FROM tatoueur");
 
@@ -136,7 +173,7 @@ class Admin
 
         foreach ($adminTab as $value) {
             echo '<option value="' . $value[0] . '">' . $value[1] . '</option>';
-            var_dump($value[0]);
+            // var_dump($value[0]);
         }
     }
 

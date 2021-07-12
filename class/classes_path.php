@@ -9,6 +9,7 @@ if ($page === "index")
     require_once('class/planning.php'); 
     require_once('class/reservation.php'); 
     require_once('class/upload.php'); 
+    // require_once('class/logout.php'); 
     //CHEMIN DE CHAQUES CLASSES
     $path_admin = 'class/admin.php';
     $path_contact = 'class/contact.php';
@@ -17,6 +18,8 @@ if ($page === "index")
     $path_planning = 'class/planning.php'; 
     $path_reservation = 'class/reservation.php';
     $path_upload = 'class/upload.php'; 
+    $path_logout = 'class/logout.php'; 
+
     //CHEMINS PAGES 
     $indexPath = ''; 
     $adminConnPath ='pages/adminConn.php'; 
@@ -38,6 +41,7 @@ if ($page === "index")
     require_once('../class/planning.php'); 
     require_once('../class/reservation.php');
     require_once('../class/upload.php');  
+    // require_once('../class/logout.php'); 
     //CHEMIN DE CHAQUES CLASSES
     $path_admin = '../class/admin.php';
     $path_contact = '../class/contact.php';
@@ -46,6 +50,7 @@ if ($page === "index")
     $path_planning = '../class/planning.php'; 
     $path_reservation = '../class/reservation.php';
     $path_upload = '../class/upload.php'; 
+    $path_logout = '../class/logout.php'; 
     //CHEMINS PAGES 
     $indexPath = '../index.php'; 
     $adminConnPath ='../pages/adminConn.php'; 
