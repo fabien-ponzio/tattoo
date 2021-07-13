@@ -15,5 +15,12 @@ if($page ==="index"){
  <body>
      <main>
 
+     <?php 
+     $id = $_GET['id'];
+     var_dump($id); 
+     $caca = new Display;
+    $caca1= $caca->AllArtistInfo($id); 
+    var_dump($caca1); 
+     ?>
      </main>
 <?php require_once('footer.php'); ?>

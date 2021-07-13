@@ -1,4 +1,4 @@
-
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +63,7 @@ if($page ==="index"){
       if (($_SESSION['admin']['droit'])=== '1337'){
         ?>
         <a href="panel_admin.php"><li>Admin</li></a>
-        <a href="#"><li><button type="submit" href="#" name="logout" value="logout">déco</button></li></a>
+        <a href="#"><li><button type="submit" href="#" name="logout" value="logout">Deconnexion</button></li></a>
       <?php
       }
       ?>
@@ -85,7 +85,7 @@ if($page ==="index"){
       $artists = $tatoueur->getArtists();
       foreach ($artists as $tatoueur){
         if ($tatoueur['nom'] != ''){ ?>
-          <a><?= $tatoueur['nom']?></a>
+          <a href="<?=$tatoueursPath?>?id=<?=$tatoueur['id']?>"><?= $tatoueur['nom']?></a>
           <?php
           }
         }

@@ -48,7 +48,7 @@ class Admin
                     $this->droit, 
                 ];
                 var_dump($_SESSION['admin']);
-                header('location:../pages/panel_admin.php');
+                header('location:index.php');
             }else{
                 echo "Mot de passe erroné";
             }
@@ -188,8 +188,6 @@ class Admin
     $deleteAdmin->bindValue(":login", $login, PDO::PARAM_INT);
     $deleteAdmin->execute();
     }
-
-
 }
 
 ?>

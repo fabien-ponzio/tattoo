@@ -10,8 +10,16 @@ class Display{
     $getArtists = $conn->prepare("SELECT nom, id FROM tatoueur"); 
     $getArtists->execute();
     $artist = $getArtists->fetchAll(PDO::FETCH_ASSOC); 
-// NE PAS AFFIHER ADMIN DANS LE SELECT 
-    return $artist;
+    return $artist; 
+    // NE PAS AFFIHER ADMIN DANS LE SELECT 
     }
+     public function AllArtistInfo($id){
+        $db = new Database; 
+        $conn =   $db->connect();    
+        $getArtists = $conn->prepare("SELECT * FROM tatoueur WHERE id = $id"); 
+        $getArtists->execute();
+        $artist = $getArtists->fetchAll(PDO::FETCH_ASSOC); 
+        return $artist; 
+     }
 }
 ?>

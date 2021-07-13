@@ -1,6 +1,7 @@
 <?php 
-$page = 'index';
 require_once('pages/header.php'); 
+$page === 'index';
+
 ?>
 <header>
 <link rel="stylesheet" href="css/header.css">

@@ -33,7 +33,7 @@ if (isset($_POST['deleteAdmin'])) {
         <div class='bold-line'></div>
         <div class="container">
             <div class="window">
-                <div class="overlay"></div>
+                <!-- <div class="overlay"></div> -->
                 <div class="content"></div>
                 <div class="welcome">Telecharger une image</div>
                 <input type="file" id="photo" name="photo" class="input-line full-width">

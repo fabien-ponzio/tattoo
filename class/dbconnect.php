@@ -23,7 +23,6 @@ public function connect(){
         echo "connexion échoué:" . $e->getMessage();
     }
 }
-
 }
 
 ?>
