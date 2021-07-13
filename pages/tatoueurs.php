@@ -18,9 +18,16 @@ if($page ==="index"){
      <?php 
      $id = $_GET['id'];
      var_dump($id); 
-     $caca = new Display;
+    $caca = new Display;
     $caca1= $caca->AllArtistInfo($id); 
     var_dump($caca1); 
+
+    $caca2 = $caca->AllArtistImage($id);
+    // foreach sur les résultats 
+    // if classe == flash appelle tel css et inversement 
+    var_dump($caca2); 
+
+
      ?>
      </main>
 <?php require_once('footer.php'); ?>

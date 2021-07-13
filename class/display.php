@@ -21,5 +21,14 @@ class Display{
         $artist = $getArtists->fetchAll(PDO::FETCH_ASSOC); 
         return $artist; 
      }
+
+     public function AllArtistImage($id){
+      $db = new Database; 
+      $conn =   $db->connect();    
+      $getCategories = $conn->prepare("SELECT * FROM image_tatoueur WHERE id_tatoueur = $id");
+      $getCategories->execute();
+      $image = $getCategories->fetchAll(PDO::FETCH_ASSOC);
+      return $image;
+     }
 }
 ?>
