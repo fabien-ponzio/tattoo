@@ -7,6 +7,18 @@ if($page ==="index"){
     else{
     require_once('../class/classes_path.php'); 
     }
+if (isset($_POST['contact'])) {
+
+    var_dump($_POST);
+    $name = $_POST['prenom'];
+    $option = $_POST['motif-contact'];
+    $tatoueur = $_POST['tatoueur'];
+    $price = $_POST['budget'];
+    $age = $_POST['ageInput'];
+    $picture = $_POST['fileUpload'];
+    $description = $_POST['description'];
+
+};
 ?>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/footer.css">
@@ -25,7 +37,6 @@ if($page ==="index"){
             <option value="retouche">Retouches</option>
             <option value="partenariat">Demande de partenariat</option>
             <option value="others">Autres</option>
-
         </select>
 
         <p>J'adresse ma demande à :</p>

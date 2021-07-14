@@ -30,5 +30,14 @@ class Display{
       $image = $getCategories->fetchAll(PDO::FETCH_ASSOC);
       return $image;
      }
+
+     public function getImage($id){
+      $db = new Database; 
+      $conn =   $db->connect(); 
+      $getCategories = $conn->prepare("SELECT nom FROM image_tatoueur WHERE id_tatoueur = $id");
+      $getCategories->execute();
+      $image = $getCategories->fetchAll(PDO::FETCH_ASSOC);
+      return $image;
+     }
 }
 ?>
