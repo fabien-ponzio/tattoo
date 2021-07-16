@@ -7,12 +7,13 @@ if($page ==="index"){
     require_once('../class/classes_path.php'); 
 }
 $id = $_GET['id'];
-// var_dump($id); 
+//var_dump($id); 
 $display = new Display;
 $infosArtist = $display->AllArtistInfo($id); 
-$imagesArtist = $display->getImages($id);
-// var_dump($infosArtist); 
-// var_dump($imagesArtist);
+$imagesTattoo = $display->getImagesTattoo($id);
+$imagesFlash = $display->getImagesFlash($id);
+//var_dump($imagesFlash); 
+//var_dump($imagesTattoo);
 ?>
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="../css/tatoueurs.css">
@@ -24,11 +25,19 @@ $imagesArtist = $display->getImages($id);
             <img src="../images/<?= $infosArtist[0]['image']?>" width="600px" alt='picture_artist'>
             <h1><?= $infosArtist[0]['nom'] ?></h1>
         </section>
-        <section id="main-artist-gallery">
-            <?php foreach ($imagesArtist as $image) { ?>
-                <img class="index-gallery-img" src = "../<?= $image['nom'] ?>">
-            <?php } ?>>
-      </section>
+        <section id="main-news-title">
+            <h2> Nouveautés</h2>
+        </section>
+        <section id="main-artist-gallery-flash">
+            <?php foreach ($imagesFlash as $image) { ?>
+                <img class="gallery-flash" src = "../<?= $image['nom'] ?>">
+            <?php } ?>
+        </section>
+        <section id="main-artist-gallery-tattoo">
+            <?php foreach ($imagesTattoo as $image) { ?>
+                <img class="gallery-tattoo" src = "../<?= $image['nom'] ?>">
+            <?php } ?>
+        </section>
         <article class="presentation-artist-bio">
             <p>
                 <?= $infosArtist[0]['contenu'] ?>

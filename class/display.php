@@ -34,7 +34,7 @@ class Display{
      public function getImages($id){
       $db = new Database; 
       $conn =   $db->connect(); 
-      $getCategories = $conn->prepare("SELECT nom FROM image_tatoueur WHERE id_tatoueur = $id");
+      $getCategories = $conn->prepare("SELECT nom, classe FROM image_tatoueur WHERE id_tatoueur = $id");
       $getCategories->execute();
       $images = $getCategories->fetchAll(PDO::FETCH_ASSOC);
       return $images;
@@ -48,5 +48,22 @@ class Display{
        $contact = $getContact->fetchAll(PDO::FETCH_ASSOC);
        return $contact;
       }
+      public function getImagesTattoo($id){
+        $db = new Database; 
+        $conn =   $db->connect();    
+        $getArtists = $conn->prepare("SELECT nom, classe FROM image_tatoueur WHERE id_tatoueur = $id AND classe = 'tattoo' ORDER BY id DESC LIMIT 3"); 
+        $getArtists->execute();
+        $images = $getArtists->fetchAll(PDO::FETCH_ASSOC); 
+        return $images;
+        }
+  
+     public function getImagesFlash($id){
+        $db = new Database; 
+        $conn =   $db->connect();    
+        $getArtists = $conn->prepare("SELECT nom, classe FROM image_tatoueur WHERE id_tatoueur = $id AND classe = 'flash' ORDER BY id DESC LIMIT 6"); 
+        $getArtists->execute();
+        $images = $getArtists->fetchAll(PDO::FETCH_ASSOC); 
+        return $images; 
+     }
 }
 ?>

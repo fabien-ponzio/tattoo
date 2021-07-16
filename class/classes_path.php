@@ -8,7 +8,6 @@ if ($page === "index")
     require_once('class/display.php');    
     require_once('class/planning.php'); 
     require_once('class/reservation.php'); 
-    require_once('class/upload.php'); 
     // require_once('class/logout.php'); 
     //CHEMIN DE CHAQUES CLASSES
     $path_admin = 'class/admin.php';
@@ -41,7 +40,6 @@ if ($page === "index")
     require_once('../class/display.php');
     require_once('../class/planning.php'); 
     require_once('../class/reservation.php');
-    require_once('../class/upload.php');  
     // require_once('../class/logout.php'); 
     //CHEMIN DE CHAQUES CLASSES
     $path_admin = '../class/admin.php';

@@ -1,5 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
 
+#main-news-title h2 {
+    background-color:#faf3e0;
+    color: #600127;
+    margin-top : -20px;
+    padding: 0 30px;
+    text-transform: uppercase;
+}
+
+#main-news-title {
+    align-items: center;
+    border-top: 7px solid #600127;
+    justify-content: center;
+    display: flex;
+    margin-top: 2.5%;
+    width: 90%;
+}
+
 #main-presentation-artist {
     align-items: center;
     background-color: #faf3e0;
@@ -15,7 +32,7 @@
     background-color: #B68973;
     display: flex;
     justify-content: space-between;
-    margin-top: 2.5%;
+    margin: 2.5% 0;
     width: 80%;
 }
 
@@ -40,6 +57,39 @@
     width: 80%;
 }
 
+#main-artist-gallery-tattoo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  .gallery-tattoo {
+    display: flex;
+    background-size: cover;
+    height:400px;
+    object-fit: cover;
+    width: 30%;
+    margin:1.66%;  /10%/6/
+  }
+
+#main-artist-gallery-flash{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  .gallery-flash {
+    border: 10px solid #600127;
+    background-size: cover;
+    display: flex;
+    height: 180px;
+    object-fit: cover;
+    width: 12.5%;
+    margin:1.66%;  /10%/6/
+  }
+
 /////////////////////////// RESPONSIVE TATTOO ARTIST ///////////////////////////////////////////////////////
 @media screen and (max-width: 980px) {
     .presentation-artist {
@@ -54,5 +104,36 @@
     .presentation-artist img{
         margin-bottom: 5%;
         width: 90%;
+    }
+
+    #main-artist-gallery-tattoo {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 5%;
+        width: 90%;
+      }
+  
+      .gallery-tattoo {
+        width: 90%;
+      }
+
+      #main-artist-gallery-flash {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 5%;
+        width: 90%;
+      }
+  
+      .gallery-flash {
+        height: 400px ;
+        width: 90%;
+      }
+
+      #main-news-title h2 {
+        font-size: 20px;
     }
   }

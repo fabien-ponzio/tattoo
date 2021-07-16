@@ -73,8 +73,15 @@ if (isset($_POST['deleteAdmin'])) {
             $displayMessage = $contact->getContact($_SESSION['admin']['login']);
             var_dump($displayMessage);
             foreach ($displayMessage as $message) {?>
-            <p>Vous avez reçu un message de :<?= $message['nom']?></p> 
-            <p></p>
+            <div>
+                <p>Vous avez reçu un message de: <?= $message['nom']?> / Adresse Mail :<?= $message['mail_contact'] ?></p>
+            </div>
+            <div>
+                <p><?= $message['age']?></p>
+                <p><?= $message['budget']?></p>
+                <p>Demande : <?= $message['textarea']?></p><br>
+                <img src="../upload/<?= $message['image_contact']?>" alt="">
+            </div>
             <?php };?>
             
         </div>
