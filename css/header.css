@@ -8,6 +8,7 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
+  background-color: #faf3e0 ;
 }
 
 .logoHeader {

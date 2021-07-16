@@ -21,7 +21,7 @@ if ($page === "index")
     $path_logout = 'class/logout.php'; 
 
     //CHEMINS PAGES 
-    $indexPath = ''; 
+    $indexPath = 'index.php'; 
     $adminConnPath ='pages/adminConn.php'; 
     $contactPath='pages/contact.php';
     $registerAdminPath='pages/inscription_admin.php';
@@ -30,6 +30,7 @@ if ($page === "index")
     $reservationPath='pages/reservation_form.php'; 
     $tatoueursPath='pages/tatoueurs.php'; 
     $FAQpath = 'pages/FAQ.php';
+    $contentPanel = 'pages/content_panel.php'; 
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = 'images/logo.PNG'; 
 }else{
@@ -61,6 +62,8 @@ if ($page === "index")
     $reservationPath='../pages/reservation_form.php'; 
     $tatoueursPath='../pages/tatoueurs.php'; 
     $FAQpath = '../pages/FAQ.php';
+    $contentPanel = '../pages/content_panel.php'; 
+
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = '../images/logo.PNG'; 
 }

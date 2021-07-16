@@ -2,7 +2,7 @@
 
 require_once('dbconnect.php');
 
-class Admin
+class Admin 
 {
     private $id;
     public $login;
@@ -35,7 +35,6 @@ class Admin
                 $this->login = $admin['login']; 
                 $this->password = $admin['password']; 
                 $this->droit = $admin['id_droit']; 
-                var_dump($admin); 
 
                 $_SESSION['admin'] = [
                 'id' =>
@@ -47,10 +46,15 @@ class Admin
                 'droit' => 
                     $this->droit, 
                 ];
-                var_dump($_SESSION['admin']);
-                header('location:index.php');
+                if(__DIR__ == 'C:\wamp64\www\tattoo\pages' ){
+                    header("location: ../index.php");
+
+                }
+                  elseif(__DIR__ == 'C:\wamp64\www\tattoo' ){
+                    header("location: index.php");
+                  }
             }else{
-                echo "Mot de passe erroné";
+                echo "Mot de passe erroné"; 
             }
         }else{
             echo 'veuillez remplir les champs';

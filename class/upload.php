@@ -1,96 +1,6 @@
 <?php
 require_once('dbconnect.php'); 
 
-// class Upload 
-// {
-//     public function registerFile($path){
-//         if (isset($_POST['upload'])) {
-//             $file = $_FILES['imgUpload'];
-//             print_r($fileUpload);
-//             $fileName = $_FILES['imgUpload']['name'];
-//             $fileTmpName = $_FILES['imgUpload']['tmp_name'];
-//             $fileSize = $_FILES['imgUpload']['size'];
-//             $fileError = $_FILES['imgUpload']['name'];
-//             $fileType = $_FILES['imgUpload']['type'];
-        
-//             $fileExt = explode('.', $fileName);
-//             $fileActualExt = strtolower(end($fileExt));
-        
-//             $authorized = array('jpg','jpeg','png');
-        
-//             if (in_array($fileActualExt, $allowed)) {
-//                 if ($fileError === 0) {
-//                     if ($fileSize < 4194304){
-//                         $fileNameNew = uniqid('', true).".".$fileActualExt;
-//                         $fileDestination = '../class/upload/'.$fileNameNew;
-        
-        
-//                         move_uploaded_file($fileTmpName, $fileDestination);
-//                         header("location: index.php?uploadsuccess");
-//                     }else{
-//                         echo "Votre fichier est trop volumineux";
-//                     }
-//                 }else {
-//                     echo "Il y a eu une erreur dans le téléchargement de votre fichier";
-//                 }
-//             }else {
-//                 echo "Vous ne pouvez pas télécharger des fichiers de ce type";
-//             }
-//          var_dump($_FILES); 
-//         }    
-//     }
-
-        // if (isset($_POST['submit'])) {
-        //     // $file = $_FILES['imgUpload'];
-        //     print_r($_FILES['imgUpload']['name']);
-        //     $fileName = $_FILES['imgUpload']['name'];
-        //     $fileTmpName = $_FILES['imgUpload']['tmp_name'];
-        //     $fileSize = $_FILES['imgUpload']['size'];
-        //     $fileError = $_FILES['imgUpload']['name'];
-        //     $fileType = $_FILES['imgUpload']['type'];
-        
-        //     $fileExt = explode('.', $fileName);
-        //     $fileActualExt = strtolower(end($fileExt));
-        
-        //     $authorized = array('jpg','jpeg','png');
-        
-        //     if (in_array($fileActualExt, $allowed)) {
-        //         if ($fileError === 0) {
-        //             if ($fileSize < 4194304){
-        //                 $fileNameNew = uniqid('', true).".".$fileActualExt;
-        //                 $fileDestination = '../upload/'.$fileNameNew;
-        //                 echo "Votre fichier est trop téléchargé";
-        
-        //                 move_uploaded_file($fileTmpName, $fileDestination);
-        //                 header("location: index.php?uploadsuccess");
-        //             }else{
-        //                 echo "Votre fichier est trop volumineux";
-        //             }
-        //         }else {
-        //             echo "Il y a eu une erreur dans le téléchargement de votre fichier";
-        //         }
-        //     }else {
-        //         echo "Vous ne pouvez pas télécharger des fichiers de ce type";
-        //     }
-        //  var_dump($_FILES); 
-        // }    
-    // }
-
-
-// // INSERTION DES IMAGES EN BDD 
-//     public function InsertPics(){
-//     if (isset($_POST['publier'])) {
-//         $db = new Database;
-//         $db->connect();
-//         $insert = $db->conn->prepare('INSERT INTO image_tatoueur (nom, classe, id_tatoueur) VALUES (:pic_name, :destination, :tatoueur)'); 
-//         // $insert->bindValue("pic_name", $nom, PDO::PARAM_STR); 
-//         // $insert->bindValue("destination", $classe, PDO::PARAM_STR); 
-//         // $insert->bindValue("tatouer", $id_tatoueur, PDO::PARAM_INT); 
-//         $insert->execute(); 
-//         return $insert->fetchAll(PDO::FETCH_ASSOC);
-//     }
-//     }
-// }
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Vérifie si le fichier a été uploadé sans erreur.
     if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
@@ -128,9 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         // $insert->bindValue("tatouer", $id_tatoueur, PDO::PARAM_INT); 
                         $insert->execute(); 
                         return $insert->fetchAll(PDO::FETCH_ASSOC);
-               //"UPDATE utilisateurs SET avatar='$file_path'"; //ajouter id utilisateur
-
-                
+                        //"UPDATE utilisateurs SET avatar='$file_path'"; //ajouter id utilisateur                
             } 
         } else{
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer."; 

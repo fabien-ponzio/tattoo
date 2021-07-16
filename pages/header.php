@@ -1,4 +1,8 @@
-<?php ob_start(); ?>
+<?php ob_start();
+if (!isset($_SESSION)) {
+  session_start(); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +25,7 @@
 <body>
   <header>
   <?php
-if($page ==="index"){
+if($page === "index"){
   require_once('class/classes_path.php');
   }
   else{
@@ -60,7 +64,7 @@ if($page ==="index"){
       <a href="#"><li>Contact</li></a>
       <a href="#"><li>F.A.Q</li></a>
       <?php 
-      if (($_SESSION['admin']['droit'])=== '1337'){
+      if (($_SESSION['admin']['droit'])== '1337'){
         ?>
         <a href="panel_admin.php"><li>Admin</li></a>
         <a href="#"><li><button type="submit" href="#" name="logout" value="logout">Deconnexion</button></li></a>
@@ -98,7 +102,16 @@ if($page ==="index"){
     if (isset($_SESSION['admin'])) {
       if (($_SESSION['admin']['droit'])==1337){
         ?>
-        <a href="panel_admin.php">Admin</a>
+        <div class="dropdown">
+        <a href="#" class="dropbtn">Admin</a>
+        <div class="dropdown-content">
+          <a href="<?=$contactPath?>">Contact</a>
+          <a href="<?=$planningPath?>">Planning</a>
+          <a href="<?=$AdminPanelPath?>">Gestion d'admin</a>
+          <a href="<?=$contentPanel?>">Gestion de contenu</a>
+
+        </div>
+        </div>
         
         <?php 
         if($page ==="index"){
@@ -106,7 +119,6 @@ if($page ==="index"){
           }
           else{
             echo '<a href="../class/logout.php" name="logout">Deconnexion</a>';
-
           }
         }
       }

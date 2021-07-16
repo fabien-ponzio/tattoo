@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/footer.css">
 
 <?php 
-  
+$page = "Footer";
     if (isset($_POST['connectAdmin'])) {
         $admin = new Admin;
         $admin->connectAdmin();

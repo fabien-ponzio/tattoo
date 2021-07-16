@@ -1,6 +1,6 @@
 <?php 
+// session_start();
 require_once('dbconnect.php');
-session_start();
 
 class Contact
 {
@@ -36,8 +36,32 @@ public function getRequests( $mailFrom, $mailTo, $motifContact, $tatoueur, $budg
         // header("Location: index.php?mailsend");
         var_dump($_POST);
         var_dump($txt); 
-    }
-    
+    } 
+}
+public function InsertRequests($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file){
+        $name = htmlspecialchars(trim($name));
+        $reason = htmlspecialchars(trim($reason));
+        $email = htmlspecialchars(trim($email));
+        $phone = htmlspecialchars(trim($phone));
+        $tatoueur = htmlspecialchars(trim($tatoueur));
+        $budget = htmlspecialchars(trim($budget));
+        $majeur = htmlspecialchars(trim($majeur));
+        $description = htmlspecialchars(trim($description));
+        //CONNEXION BDD
+        $db = new Database;
+        $db->connect();
+        $insert = $db->conn->prepare("INSERT INTO contact (motif_contact, mail_contact, age, budget, tatoueur, textarea, image_contact, nom, phone)VALUES(:reason, :mail_contact, :age, :budget, :tatoueur, :textarea, :image_contact, :nom, :phone)");
+        $insert->bindValue(":reason", $reason, PDO::PARAM_STR);
+        $insert->bindValue(":mail_contact", $email, PDO::PARAM_STR);
+        $insert->bindValue(":age", $majeur, PDO::PARAM_STR);
+        $insert->bindValue(":budget", $budget, PDO::PARAM_STR); 
+        $insert->bindValue(":tatoueur", $tatoueur, PDO::PARAM_STR);
+        $insert->bindValue(":textarea", $description, PDO::PARAM_STR); 
+        $insert->bindValue(":image_contact", $file, PDO::PARAM_STR);
+        $insert->bindValue(":nom", $name, PDO::PARAM_STR);
+        $insert->bindValue(":phone", $phone, PDO::PARAM_STR);
+        var_dump($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file);
+        $insert->execute();
 }
 //echo"hello";
 }

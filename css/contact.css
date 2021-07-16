@@ -1,0 +1,180 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+
+#main-contact {
+    align-items: center;
+    background-color: #faf3e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 50px 0;
+}
+
+#main-contact-form {
+    align-items: center;
+    background-color: #B68973;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    width: 80%;
+}
+
+#main-contact-title {
+    border-top: 10px solid #600127;
+    color: #600127;
+    display: flex;
+    background-color:#B68973;
+    font-family: Pilar;
+    padding: 20px 0;
+}
+
+#main-contact-subtitle {
+    color: #600127;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    width: 80%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    width: 90%;
+}
+
+.contact-form-container {
+    display: flex;
+}
+.contact-form-subcontainer {
+    color:#600127;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+}
+
+.contact-form-subcontainer input{
+    background:rgba(255,255,255,.3);
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.contact-form-subcontainer input:focus{
+    border: none;
+    background-color: white;
+  }
+
+.contact-form-subcontainer select{
+    background:rgba(255,255,255,.3);
+    border: none;
+    border-radius: 2px;
+    color:#600127;
+    padding: 7.5px;
+}
+
+.contact-form-subcontainer select:focus{
+    border: none;
+    background-color: white;
+  }
+
+.contact-form-subcontainer1 {
+    color:#600127;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+}
+
+.contact-form-radio{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.contact-form-subcontainer2 {
+    color:#600127;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+}
+
+.contact-form-textarea {
+    background:rgba(255,255,255,.3);
+    border: none;
+    border-radius: 2px;
+    padding: 20px;
+    width: 100%;
+}
+
+.contact-form-textarea:focus {
+    background:white;
+}
+
+.contact-form-submit {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-contact-submit {
+    align-content: center;
+    background:rgba(255,255,255,.3);
+    border-radius:25px;
+    border: 0.3px solid #600127;
+    color: #600127;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 95%;
+}
+
+#form-contact-submit:hover {
+    background:#600127;
+    color:#faf3e0;
+    transition: 1s ease;
+}
+
+/*////////////////////////// RESPONSIVE TATTOO ARTIST //////////////////////////////////////////////////////*/
+@media screen and (max-width: 980px) {
+    #main-contact-title {
+        font-size: 24px;
+    }
+    
+    #main-contact-subtitle {
+        font-size: 16px;
+    }
+    .contact-form-container {
+        flex-direction: column;
+    }
+    .contact-form-subcontainer {
+        width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width: 780px) {
+    #main-contact-title {
+        font-size: 20px;
+    }
+    
+    #main-contact-subtitle {
+        font-size: 14px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form-subcontainer label{
+        font-size: 14px;
+    }
+
+    .contact-form-textarea {
+        font-size: 14px;
+    }
+
+  }

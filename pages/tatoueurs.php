@@ -3,31 +3,41 @@ $page="Artistes";
 require_once('header.php');
 if($page ==="index"){
     require_once('class/classes_path.php');
-    }
-    else{
+} else {
     require_once('../class/classes_path.php'); 
-    }
+}
+$id = $_GET['id'];
+// var_dump($id); 
+$display = new Display;
+$infosArtist = $display->AllArtistInfo($id); 
+$imagesArtist = $display->getImages($id);
+// var_dump($infosArtist); 
+// var_dump($imagesArtist);
 ?>
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="../css/tatoueurs.css">
 <link rel="stylesheet" href="css/footer.css">
- <title><?= $page ?></title>
-
- <body>
-     <main>
-
-     <?php 
-     $id = $_GET['id'];
-     var_dump($id); 
-    $caca = new Display;
-    $caca1= $caca->AllArtistInfo($id); 
-    var_dump($caca1); 
-
-    $caca2 = $caca->AllArtistImage($id);
-    // foreach sur les résultats 
-    // if classe == flash appelle tel css et inversement 
-    var_dump($caca2); 
-
-
-     ?>
-     </main>
+<title><?= $page ?></title>
+<body>
+    <main id="main-presentation-artist">
+        <section class="presentation-artist">
+            <img src="../images/<?= $infosArtist[0]['image']?>" width="600px" alt='picture_artist'>
+            <h1><?= $infosArtist[0]['nom'] ?></h1>
+        </section>
+        <section id="main-artist-gallery">
+            <?php foreach ($imagesArtist as $image) { ?>
+                <img class="index-gallery-img" src = "../<?= $image['nom'] ?>">
+            <?php } ?>>
+      </section>
+        <article class="presentation-artist-bio">
+            <p>
+                <?= $infosArtist[0]['contenu'] ?>
+                The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.
+                Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet. The overlay color can be changed by changing the
+            </p>
+        </article>
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-91af20a2-1683-4a44-b038-319d1d7a4b45"></div>
+    </main>
 <?php require_once('footer.php'); ?>
+
