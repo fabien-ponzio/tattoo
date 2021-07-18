@@ -63,6 +63,15 @@ public function InsertRequests($name, $reason,$email, $phone, $tatoueur, $budget
         var_dump($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file);
         $insert->execute();
 }
+
+public function deleteRequest($id){
+    $db = new Database;
+    $db->connect();
+    $delete = $db->conn->prepare("DELETE FROM contact WHERE id = :id");
+    $delete->bindValue(":id", $id, PDO::PARAM_INT);
+    $delete->execute(); 
+    header('location:panel_admin.php');
+}
 //echo"hello";
 }
 ?>

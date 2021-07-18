@@ -30,6 +30,7 @@ if ($page === "index")
     $tatoueursPath='pages/tatoueurs.php'; 
     $FAQpath = 'pages/FAQ.php';
     $contentPanel = 'pages/content_panel.php'; 
+    $contactAdmin = 'pages/admin_contact.php' ;
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = 'images/logo.PNG'; 
 }else{
@@ -61,6 +62,7 @@ if ($page === "index")
     $tatoueursPath='../pages/tatoueurs.php'; 
     $FAQpath = '../pages/FAQ.php';
     $contentPanel = '../pages/content_panel.php'; 
+    $contactAdmin = '../pages/admin_contact.php' ;
 
     //LOGO LOGO LOGO LOGO LOGO LOGO
     $path_logo = '../images/logo.PNG'; 

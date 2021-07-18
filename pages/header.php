@@ -96,7 +96,11 @@ if($page === "index"){
       ?>
     </div>
     </div>
-    <a href="<?= $contactPath ?>">Contact</a>
+    <?php
+    if (empty($_SESSION)) {?>
+      <a href="<?= $contactPath ?>">Contact</a>
+    <?php }
+    ?>
     <a href="<?= $FAQpath ?>">F.A.Q</a>
     <?php 
     if (isset($_SESSION['admin'])) {
@@ -105,7 +109,6 @@ if($page === "index"){
         <div class="dropdown">
         <a href="#" class="dropbtn">Admin</a>
         <div class="dropdown-content">
-          <a href="<?=$contactPath?>">Contact</a>
           <a href="<?=$planningPath?>">Planning</a>
           <a href="<?=$AdminPanelPath?>">Gestion d'admin</a>
           <a href="<?=$contentPanel?>">Gestion de contenu</a>

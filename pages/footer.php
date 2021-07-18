@@ -35,10 +35,8 @@ $page = "Footer";
         </div>
       </form>
       <div class="social">
-        <a href="#"><i class="icon ion-social-instagram"></i></a>
-        <a href="#"><i class="icon ion-social-snapchat"></i></a>
-        <a href="#"><i class="icon ion-social-twitter"></i></a>
-        <a href="#"><i class="icon ion-social-facebook"></i></a>
+        <a href="https://www.instagram.com/l_ornithorynque_tattoo/"><i class="icon ion-social-instagram"></i></a>
+        <a href="https://www.facebook.com/lornithorynquetattoo"><i class="icon ion-social-facebook"></i></a>
       </div>
     </div>
 

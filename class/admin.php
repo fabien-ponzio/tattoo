@@ -178,7 +178,7 @@ class Admin
 
         foreach ($adminTab as $value) {
             echo '<option value="' . $value[0] . '">' . $value[1] . '</option>';
-            // var_dump($value[0]);
+            var_dump($value[0]);
         }
     }
 
@@ -191,6 +191,16 @@ class Admin
     $deleteAdmin =  $db->conn->prepare("DELETE FROM tatoueur WHERE id = :login");
     $deleteAdmin->bindValue(":login", $login, PDO::PARAM_INT);
     $deleteAdmin->execute();
+    }
+
+    public function registerImage($namePhoto, $class, $tattooArtist){
+        $db = new Database; 
+        $connect = $db->connect();
+        $InsertImage = $connect->prepare('INSERT INTO image_tatoueur (nom, classe, id_tatoueur) VALUES (:nom, :classe, :id_tatoueur)'); 
+        $InsertImage->bindValue(":nom", $namePhoto, PDO::PARAM_STR);
+        $InsertImage->bindValue(":classe", $class, PDO::PARAM_STR);
+        $InsertImage->bindValue(":id_tatoueur", $tattooArtist, PDO::PARAM_INT);
+        $InsertImage->execute();
     }
 }
 

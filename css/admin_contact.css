@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+
+#main-admin-contact {
+    align-items: center;
+    background-color: #faf3e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
+    padding-top: 50px;
+    width: 100%;
+}
+
+#admin-contact {
+    align-items: center;
+    background-color:#B68973;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 0;
+    width: 90%;
+}
+#main-admin-contact-title {
+    align-items: center;
+    border-top: 10px solid #600127;
+    color: #600127;
+    display: flex;
+    background-color:#B68973;
+    font-family: Pilar;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#main-admin-contact-subtitle {
+    color: #600127;
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.admin-contact-message-label {
+    color:#faf3e0;
+}
+
+.admin-contact-message {
+    background-color: #B68973;
+    border-top: 10px solid #600127;
+    display: flex;
+    width: 90%;
+}
+
+.admin-contact-refs {
+    align-items: center;
+    background-color: rgba(96, 1, 39, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+}
+
+.admin-contact-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 35%;
+}
+
+.admin-contact-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 85%;
+}
+
+.admin-contact-text{
+    color:#600127;
+}
+
+.admin-contact-submit{
+    align-content: center;
+    background:rgba(255,255,255,.3);
+    border-radius:25px;
+    border: 0.3px solid #B68973;
+    color: #600127;
+    font-size: 14px;
+    padding: 5px 0;
+    width: 250px;
+}
+  
+.admin-contact-submit:hover {
+    background-color: #600127;
+    color: #faf3e0;
+    transition: 1s ease;
+  }
+
+
+
+/////////////////////////// RESPONSIVE TATTOO ARTIST ///////////////////////////////////////////////////////
+@media screen and (max-width: 980px) {
+    #admin-contact {
+        padding: 50px 10px;
+        width: 90%;
+    }
+
+    .admin-contact-message {
+        flex-direction: column;
+    }
+
+    .admin-contact-refs {
+        padding: 20px;
+        width: 100%;
+    }
+    
+    .admin-contact-infos {
+        width: 90%;
+    }
+
+    .admin-contact-submit{
+        width: 200px;
+    }
+  }

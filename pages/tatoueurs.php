@@ -30,12 +30,12 @@ $imagesFlash = $display->getImagesFlash($id);
         </section>
         <section id="main-artist-gallery-flash">
             <?php foreach ($imagesFlash as $image) { ?>
-                <img class="gallery-flash" src = "../<?= $image['nom'] ?>">
+                <img class="gallery-flash" src = "../upload/<?= $image['nom'] ?>">
             <?php } ?>
         </section>
         <section id="main-artist-gallery-tattoo">
             <?php foreach ($imagesTattoo as $image) { ?>
-                <img class="gallery-tattoo" src = "../<?= $image['nom'] ?>">
+                <img class="gallery-tattoo" src = "../upload/<?= $image['nom'] ?>">
             <?php } ?>
         </section>
         <article class="presentation-artist-bio">

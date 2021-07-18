@@ -15,17 +15,19 @@ if($page ==="index"){
 <body>
     <main>
     <?php 
-        $dateComponents = getdate(); 
-        $month = $dateComponents['mon']; 
-        $year = $dateComponents['year']; 
-        $planning = new Planning(); 
-        $planning->build_calendar($month, $year); 
+if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {
+    $dateComponents = getdate(); 
+    $month = $dateComponents['mon']; 
+    $year = $dateComponents['year']; 
+    $planning = new Planning(); 
+    $planning->build_calendar($month, $year); 
 
-        $dateFocus = new Datetime('now');
-        $dateFocus->setTime(07, 00);
+    $dateFocus = new Datetime('now');
+    $dateFocus->setTime(07, 00);
 
-        $weeklyCalendar = new Planning(); 
-        $weeklyCalendar->displayHtmlTable($dateFocus); 
+    $weeklyCalendar = new Planning(); 
+    $weeklyCalendar->displayHtmlTable($dateFocus);
+     }
     ?>
     </main>
 <?php  require_once('footer.php');?>

@@ -1,7 +1,7 @@
 <?php
-require_once('dbconnect.php'); 
+// require_once('dbconnect.php'); 
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+//if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Vérifie si le fichier a été uploadé sans erreur.
     if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -27,23 +27,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Votre fichier a été téléchargé avec succès.";
                 
                 $file_path="upload/" . $_FILES["photo"]["name"];
-
-                //récupérer le chemin du serveur soit avec une super globale SERVER ou le taper en dur
-
-                $db = new Database;
-                $db->connect();
-                        $insert = $db->conn->prepare('INSERT INTO image_tatoueur (nom) VALUES (:nom)'); 
-                        // $insert->bindValue("pic_name", $nom, PDO::PARAM_STR); 
-                        $insert->bindValue("nom", $file_path, PDO::PARAM_STR); 
-                        // $insert->bindValue("tatouer", $id_tatoueur, PDO::PARAM_INT); 
-                        $insert->execute(); 
-                        return $insert->fetchAll(PDO::FETCH_ASSOC);
-                        //"UPDATE utilisateurs SET avatar='$file_path'"; //ajouter id utilisateur                
+              
             } 
         } else{
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer."; 
         }
     } else{
     }
-}
+//}
 ?>
