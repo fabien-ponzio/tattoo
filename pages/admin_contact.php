@@ -7,8 +7,7 @@ if($page ==="index"){
     else{
     require_once('../class/classes_path.php'); 
     }
-    if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {
-
+    // if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {
 //var_dump($_SESSION['admin']['login']);
 if (isset($_POST['deleteRequest'])) {
     $id_message = $_POST['contactId'];
@@ -42,7 +41,7 @@ if (isset($_POST['deleteRequest'])) {
                         <a class="contact" href="mailto:<?= $message['mail_contact'] ?>" target="_blank"><?= $message['mail_contact'] ?></a>
                     </p>
         
-                    <form class="admin-contac-delete" action="" method="POST">
+                    <form class="admin-contact-delete" action="" method="POST">
                         <input type="hidden" name="contactId" value="<?= $message['id'] ?>">
                         <input class="admin-contact-submit" type="submit" name="deleteRequest" value="supprimer">
                     </form>
@@ -66,7 +65,7 @@ if (isset($_POST['deleteRequest'])) {
             <?php };?>
     </section>
 </main>
-    <?php }else{
-        echo"Vous ne pouvez pas accéder à cette page";
-    }?>
+    <?php //}else{
+       // echo"Vous ne pouvez pas accéder à cette page";
+   //}?>
 <?php require_once('footer.php'); ?>

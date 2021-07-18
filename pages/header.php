@@ -44,7 +44,7 @@ if($page === "index"){
     <span></span>
     
     <ul id="menu">
-      <a href="#"><li>Accueil</li></a>
+      <a href="<?= $indexPath ?>"><li>Accueil</li></a>
       <a class="dropResponsive" href="#">
         <li>Artistes</li>
           <div class="dropResponsive-content">
@@ -53,21 +53,33 @@ if($page === "index"){
             $artists = $tatoueur->getArtists();
             foreach ($artists as $tatoueur){
               if ($tatoueur['nom'] != ''){ ?>
-                <p><?= $tatoueur['nom']?></p>
+                <a href="<?=$tatoueursPath?>?id=<?=$tatoueur['id']?>"><?= $tatoueur['nom']?></a>
             <?php
               }
             }
           ?>
           </div>
       </a>
-      <a href="#"><li>A propos</li></a>
-      <a href="#"><li>Contact</li></a>
-      <a href="#"><li>F.A.Q</li></a>
+      <a href="<?=$contactPath?>"><li>Contact</li></a>
+      <a href="<?=$FAQpath?>"><li>F.A.Q</li></a>
       <?php 
       if (($_SESSION['admin']['droit'])== '1337'){
         ?>
-        <a href="panel_admin.php"><li>Admin</li></a>
-        <a href="#"><li><button type="submit" href="#" name="logout" value="logout">Deconnexion</button></li></a>
+        <a href="panel_admin.php" class="dropReponsive">
+          <li>Admin</li>
+          <div class="dropResponsive-content">
+             <a href="">test</a>
+     
+          </div>
+        </a>
+        <?php
+        if($page ==="index"){
+            echo '<a href="class/logout.php" name="logout">Deconnexion</a>';
+          }
+          else{
+            echo '<a href="../class/logout.php" name="logout">Deconnexion</a>';
+          }
+        ?>
       <?php
       }
       ?>
@@ -112,6 +124,8 @@ if($page === "index"){
           <a href="<?=$planningPath?>">Planning</a>
           <a href="<?=$AdminPanelPath?>">Gestion d'admin</a>
           <a href="<?=$contentPanel?>">Gestion de contenu</a>
+          <a href="<?=$updatePath?>">Mise à jour profil</a>
+
 
         </div>
         </div>

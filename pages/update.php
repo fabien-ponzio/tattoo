@@ -22,7 +22,7 @@ if($page ==="index"){
     <link rel="stylesheet" href="../css/update.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <main>
+    <main id="update">
     <form action="" method="POST">
   <div class='bold-line'></div>
 <div class="container">

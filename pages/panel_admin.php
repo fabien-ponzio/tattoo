@@ -16,7 +16,7 @@ if($page ==="index"){
 <body>
 <?php
 
-if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {-
+// if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {-
 $contact = new Display();
 $displayMessage = $contact->getContact($_SESSION['admin']['login']);
 
@@ -36,7 +36,7 @@ if (isset($_POST['deleteRequest'])) {
     $RequestDelete->deleteRequest($id_message); 
     }
 ?>
-        <main>
+        <main id="panelAdmin">
         <form action="" method="POST">
         <div class="bold-line"></div>
         <div class="container">
@@ -75,7 +75,7 @@ if (isset($_POST['deleteRequest'])) {
             </div>
         </form>
     </main>
-        <?php }else {?>
-            <main> Vous ne pouvez pas accéder à cette page</main>
-        <?php } ?>
+        <?php //}else{
+            //echo"Vous ne pouvez pas accéder à cette page"; 
+        //}?>
 <?php require_once('footer.php'); ?>
