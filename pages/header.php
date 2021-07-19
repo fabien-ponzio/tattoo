@@ -3,6 +3,7 @@ if (!isset($_SESSION)) {
   session_start(); 
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +23,17 @@ if (!isset($_SESSION)) {
   <!--  STYLE STYLE STYLE STYLE STYLE -->
   <title><?= $page; ?></title>
 </head>
+
 <body>
   <header>
   <?php
-if($page === "index"){
+/* if($page === "index"){
   require_once('class/classes_path.php');
   }
   else{
   require_once('../class/classes_path.php'); 
-  }
+  } */
+  require_once($_SERVER['DOCUMENT_ROOT'].'/tattoo/class/classes_path.php');
 ?>
 <div class="wrapper"> 
   <!-- RESPONSIVE BURGER NAV -->
@@ -63,7 +66,7 @@ if($page === "index"){
       <a href="<?=$contactPath?>"><li>Contact</li></a>
       <a href="<?=$FAQpath?>"><li>F.A.Q</li></a>
       <?php 
-      if (($_SESSION['admin']['droit'])== '1337'){
+      if (isset($_SESSION['admin']['id_droit'])== '1337'){
         ?>
         <a href="panel_admin.php" class="dropReponsive">
           <li>Admin</li>
@@ -72,17 +75,11 @@ if($page === "index"){
      
           </div>
         </a>
-        <?php
-        if($page ==="index"){
-            echo '<a href="class/logout.php" name="logout">Deconnexion</a>';
-          }
-          else{
-            echo '<a href="../class/logout.php" name="logout">Deconnexion</a>';
-          }
-        ?>
       <?php
       }
       ?>
+          <a href="<?=$path_logout?>" name="logout">Deconnexion</a>
+
     </ul>
   </div>
 </nav>
@@ -115,9 +112,9 @@ if($page === "index"){
     ?>
     <a href="<?= $FAQpath ?>">F.A.Q</a>
     <?php 
-    if (isset($_SESSION['admin'])) {
-      if (($_SESSION['admin']['droit'])==1337){
+      if (isset($_SESSION['admin']['id_droit'])==1337){
         ?>
+
         <div class="dropdown">
         <a href="#" class="dropbtn">Admin</a>
         <div class="dropdown-content">
@@ -125,21 +122,10 @@ if($page === "index"){
           <a href="<?=$AdminPanelPath?>">Gestion d'admin</a>
           <a href="<?=$contentPanel?>">Gestion de contenu</a>
           <a href="<?=$updatePath?>">Mise à jour profil</a>
-
-
         </div>
         </div>
-        
-        <?php 
-        if($page ==="index"){
-            echo '<a href="class/logout.php" name="logout">Deconnexion</a>';
-          }
-          else{
-            echo '<a href="../class/logout.php" name="logout">Deconnexion</a>';
-          }
-        }
-      }
-        ?>
+        <a href="<?=$path_logout?>" name="logout">Deconnexion</a>     
+        <?php }  ?>
   </div>
 </div>
   </header>

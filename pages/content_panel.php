@@ -9,7 +9,7 @@ if($page ==="index"){
     else{
     require_once('../class/classes_path.php'); 
     }
-    if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {
+    // if (isset($_SESSION['admin']['login']) &&( $_SESSION['admin']['id_droit'] === 1337)) {
         if (isset($_POST['publish'])) {
         $namePhoto = $_FILES['photo']['name'];
         $class = $_POST['destination'];
@@ -49,7 +49,7 @@ if($page ==="index"){
         </div>
     </form>
 </main>
-<?php }else{
+<?php //}else{
     echo "Vous ne pouvez pas accéder à cette page.";
-} ?>
+//} ?>
 <?php require_once('footer.php'); ?>

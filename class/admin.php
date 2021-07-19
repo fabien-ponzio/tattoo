@@ -2,6 +2,7 @@
 
 require_once('dbconnect.php');
 
+
 class Admin 
 {
     private $id;
@@ -11,13 +12,13 @@ class Admin
     
  // CONNEXION DE L'ADMIN
 
-    public function connectAdmin(){
+    /* public function connectAdmin(){
         $login = $_POST['login'];
         $password = $_POST['password'];
 
         $login = htmlspecialchars(trim($login)); 
         $password = htmlspecialchars(trim($password)); 
-        if (isset($_POST['connectAdmin']) && !empty($login)&& !empty($password)) {
+        if (isset($_POST['connectAdmin']) && !empty($login) && !empty($password)) {
             $db = new Database;
             $db->connect();
 
@@ -46,12 +47,16 @@ class Admin
                 'droit' => 
                     $this->droit, 
                 ];
-                if(__DIR__ == 'C:\wamp64\www\tattoo\pages' ){
+                if(__DIR__ == 'C:\wamp64\www\tattoo' ){
                     header("location: ../index.php");
-
+                    echo"ouaisouais";
                 }
                   elseif(__DIR__ == 'C:\wamp64\www\tattoo' ){
+                      echo"echo";
                     header("location: index.php");
+                    echo"n'importequoi";
+                    header("Refresh:0");
+                    echo"jmenfou";
                   }
             }else{
                 echo "Mot de passe erroné"; 
@@ -59,6 +64,40 @@ class Admin
         }else{
             echo 'veuillez remplir les champs';
         }
+    } */
+
+    public function connectAdmin(){
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+
+        $login = htmlspecialchars(trim($login)); 
+        $password = htmlspecialchars(trim($password)); 
+        if (isset($_POST['connectAdmin']) && !empty($login)){
+            $db = new Database;
+            $db->connect();
+
+            $connectAdmin = $db->conn->prepare("SELECT * FROM tatoueur WHERE login = :login");
+            $connectAdmin->bindValue(':login', $login, PDO::PARAM_STR); 
+            $connectAdmin->execute(); 
+            $admin = $connectAdmin->fetch(PDO::FETCH_ASSOC);
+if (!empty($password) && password_verify($password, $admin['password'])) {
+    
+    $this->id = $admin['id']; 
+    $this->login = $admin['login']; 
+    $this->password = $admin['password']; 
+    $this->droit = $admin['id_droit']; 
+    $_SESSION['admin'] = $admin;
+
+    header('location: '.$_SERVER['REQUEST_URI']);
+
+}
+else{
+    echo 'Mot de pass erroné';
+}   
+        }else{
+        echo"login vide";
+        }
+        
     }
 
 // AJOUT D'ADMIN
