@@ -7,7 +7,6 @@ require_once('pages/header.php');
 <link rel="stylesheet" href="./css/index.css">
 </header>
 
-<body>
   <main id="main-index">
       <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
         <source src="video/video.mp4" type="video/mp4">

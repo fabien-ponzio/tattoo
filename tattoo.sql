@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 09 juil. 2021 à 10:54
+-- Généré le : mar. 20 juil. 2021 à 15:29
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.4.19
 
@@ -31,14 +31,38 @@ DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `id` int NOT NULL AUTO_INCREMENT,
   `motif_contact` varchar(255) COLLATE utf8_bin NOT NULL,
-  `id_contact` int NOT NULL,
   `mail_contact` varchar(255) COLLATE utf8_bin NOT NULL,
-  `age` int NOT NULL,
-  `budget` int NOT NULL,
+  `age` varchar(255) COLLATE utf8_bin NOT NULL,
+  `budget` varchar(255) COLLATE utf8_bin NOT NULL,
+  `tatoueur` varchar(255) COLLATE utf8_bin NOT NULL,
   `textarea` varchar(255) COLLATE utf8_bin NOT NULL,
   `image_contact` varchar(255) COLLATE utf8_bin NOT NULL,
+  `nom` varchar(255) COLLATE utf8_bin NOT NULL,
+  `phone` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `contact`
+--
+
+INSERT INTO `contact` (`id`, `motif_contact`, `mail_contact`, `age`, `budget`, `tatoueur`, `textarea`, `image_contact`, `nom`, `phone`) VALUES
+(1, 'retouches', 'fabuen@ponz', 'majeur', 'budget1', 'Tchang', 'oknagbgoaokbgoabga', 'epgzgongzg.png', 'fabien', '0942204924'),
+(2, 'retouche', 'doubler@gmail.com', 'majeur', 'budget1', 'tchang', 'bonjour, je m\'appelle Fabien Ponzio, j\'habite en centre ville de marseille et je souhaiterais me faire tatatatouer', 'Fabien9.jpg', 'fabien', '0658449105'),
+(3, 'retouche', 'doubler@gmail.com', 'majeur', 'budget1', 'tchang', 'bonjour, je m\'appelle Fabien Ponzio, j\'habite en centre ville de marseille et je souhaiterais me faire tatatatouer', 'Fabien9.jpg', 'fabien', '0658449105'),
+(6, 'question', 'test@gmail.com', 'majeur', 'budget1', 'nachos', 'testeur', 'Fabien7.jpg', 'test', '0658449105'),
+(7, 'question', 'test@gmail.com', 'majeur', 'budget1', 'nachos', 'testeur', 'Fabien7.jpg', 'test', '0658449105'),
+(9, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(10, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(11, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(12, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(13, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(14, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(15, 'question', 'nad@gmail.com', 'majeur', 'budget1', 'tchang', 'madnad', 'Fabien9.jpg', 'nad', '0658449105'),
+(17, 'rdv', 'clement@clement', 'majeur', 'budget1', 'tchang', 'palmier', 'Capturd.PNG', 'clément', '2456788992'),
+(18, 'rdv', 'hozeohgzoghzohg@dfghj', '', 'budget1', 'tchang', 'sdfghjklmùpoiuytfdxcvbn,;:!', 'Capturt.PNG', 'epjtapùekntalkgt', '06123456789'),
+(19, 'rdv', 'hozeohgzoghzohg@dfghj', '', 'budget1', 'tchang', 'sdfghjklmùpoiuytfdxcvbn,;:!', 'Capturt.PNG', 'epjtapùekntalkgt', '06123456789'),
+(22, 'rdv', 'mlk@mlk', 'majeur', 'budget1', 'tchang', 'kiklmù^\r\n$*ùmlkjhg', 'Captury.PNG', 'oiuhgfd', '0236589634');
 
 -- --------------------------------------------------------
 
@@ -83,20 +107,62 @@ INSERT INTO `droit` (`id`, `nom`) VALUES
 DROP TABLE IF EXISTS `image_tatoueur`;
 CREATE TABLE IF NOT EXISTS `image_tatoueur` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) COLLATE utf8_bin NOT NULL,
-  `classe` varchar(255) COLLATE utf8_bin NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `classe` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `id_tatoueur` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `image_tatoueur`
 --
 
 INSERT INTO `image_tatoueur` (`id`, `nom`, `classe`, `id_tatoueur`) VALUES
-(1, 'https://www.berrichonne.net/images/actus/1417/image_1417.jpg', 'flash', 1),
-(2, 'upload/IMG_0004.jpg', '', 0),
-(3, 'upload/IMG_0015.jpg', '', 0);
+(4, 'poupouFlash1.png', 'flash', 3),
+(5, 'poupouFlash2.png', 'flash', 3),
+(6, 'poupouFlash3.png', 'flash', 3),
+(7, 'poupouFlash4.png', 'flash', 3),
+(8, 'poupouFlash5.png', 'flash', 3),
+(9, 'poupouFlash6.png', 'flash', 3),
+(10, 'poupouTattoo.png', 'tattoo', 3),
+(11, 'poupouTattoo1.png', 'tattoo', 3),
+(12, 'poupouTattoo2.png', 'tattoo', 3),
+(13, 'poupouTattoo3.png', 'tattoo', 3),
+(14, 'poupouTattoo4.png', 'tattoo', 3),
+(15, 'poupouFlash6.png', 'flash', 3),
+(78, 'serge8.jpg', 'flash', 14),
+(76, 'serge6.jpg', 'flash', 14),
+(77, 'serge7.jpg', 'flash', 14),
+(33, 'poupou2.jpg', 'tattoo', 3),
+(75, 'serge5.jpg', 'flash', 14),
+(34, 'poupou3.jpg', 'tattoo', 3),
+(35, 'poupou4.jpg', 'tattoo', 3),
+(32, 'poupou12.png', 'flash', 3),
+(36, 'poupou15.png', 'flash', 3),
+(37, 'poupou6.jpg', 'flash', 3),
+(38, 'poupou17.png', 'flash', 3),
+(39, 'poupou18.png', 'flash', 3),
+(40, 'poupou9.jpg', 'flash', 3),
+(41, 'tchang1.jpg', 'tattoo', 1),
+(42, 'tchang2.jpg', 'tattoo', 1),
+(44, 'tchang3.jpg', 'tattoo', 1),
+(53, 'tchang16.png', 'flash', 1),
+(50, 'tchang5.jpg', 'flash', 1),
+(49, 'tchang4.jpg', 'flash', 1),
+(64, 'fanny2.jpg', 'flash', 12),
+(55, 'tchang17.png', 'flash', 1),
+(57, 'tchang18.png', 'flash', 1),
+(60, 'fanny1.jpg', 'tattoo', 12),
+(59, 'tchang19.png', 'flash', 1),
+(70, 'fanny7.jpg', 'tattoo', 12),
+(66, 'fanny4.jpg', 'flash', 12),
+(65, 'fanny3.jpg', 'flash', 12),
+(67, 'fanny5.jpg', 'flash', 12),
+(68, 'fanny6.jpg', 'tattoo', 12),
+(71, 'serge1.jpg', 'tattoo', 14),
+(72, 'serge2.jpg', 'tattoo', 14),
+(73, 'serge3.jpg', 'tattoo', 14),
+(74, 'serge4.jpg', 'flash', 14);
 
 -- --------------------------------------------------------
 
@@ -109,8 +175,20 @@ CREATE TABLE IF NOT EXISTS `presentation_tatoueur` (
   `id_tatoueur` int NOT NULL,
   `titre` varchar(255) COLLATE utf8_bin NOT NULL,
   `contenu` varchar(255) COLLATE utf8_bin NOT NULL,
-  `image` varchar(255) COLLATE utf8_bin NOT NULL
+  `image` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_tatoueur`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `presentation_tatoueur`
+--
+
+INSERT INTO `presentation_tatoueur` (`id_tatoueur`, `titre`, `contenu`, `image`) VALUES
+(3, 'Poupou', 'ici se tiendra la description de l\'artiste tatoueuse poupou', 'poupou.png'),
+(1, 'Tchang', 'Ici se tiendra la description de l\'artiste tatoueur Tchang', 'zombieboy.jpg'),
+(12, 'Fanny', 'Ici se tiendra la description de l\'artiste tatoueuse fanny.', 'poupou.png'),
+(13, 'Nachos', 'Ici se tiendra la description de l\'artiste tatoueur Nachos.', 'zombieboy.jpg'),
+(14, 'Serge', 'Ici se tiendra la description de l\'artiste tatoueur Serge', 'poupou.png');
 
 -- --------------------------------------------------------
 
@@ -154,16 +232,19 @@ CREATE TABLE IF NOT EXISTS `tatoueur` (
   `login` varchar(255) COLLATE utf8_bin NOT NULL,
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `tatoueur`
 --
 
 INSERT INTO `tatoueur` (`id`, `nom`, `id_droit`, `login`, `password`) VALUES
-(3, 'Poupou', 1337, 'poupou', '$argon2i$v=19$m=65536,t=4,p=1$M3RPQWlHWUIwcG96MTNuVQ$QuG8dGWQRYKVQxNZDr8KBTDIHHoQWypZUcCv7csdiQY'),
+(3, 'poupou', 1337, 'poupou', '$argon2i$v=19$m=65536,t=4,p=1$M3RPQWlHWUIwcG96MTNuVQ$QuG8dGWQRYKVQxNZDr8KBTDIHHoQWypZUcCv7csdiQY'),
 (2, '', 1337, 'Admin', '$argon2i$v=19$m=65536,t=4,p=1$MEV4NWpHcUd2d2xPSUNlUg$AqssIHzY1IIHazbulxYtvMH5xnhBtc0qHPQkpDegGCU'),
-(1, 'Tchang', 1337, 'tchang', '$argon2i$v=19$m=65536,t=4,p=1$MEV4NWpHcUd2d2xPSUNlUg$AqssIHzY1IIHazbulxYtvMH5xnhBtc0qHPQkpDegGCU');
+(1, 'tchang', 1337, 'tchang', '$argon2i$v=19$m=65536,t=4,p=1$MEV4NWpHcUd2d2xPSUNlUg$AqssIHzY1IIHazbulxYtvMH5xnhBtc0qHPQkpDegGCU'),
+(12, 'fanny', 1337, 'fanny', '$argon2i$v=19$m=65536,t=4,p=1$cDV0emkveWFpb21jMGdNaw$fxpiHsGSskA+kp7Cke4Ow8QBUq6YGc6P1dolfp06lPo'),
+(13, 'nachos', 1337, 'nachos', '$argon2i$v=19$m=65536,t=4,p=1$TWE2Rmx3dm1aSHJ3cDAwRg$eaT3Jk90EH6567f/272xo3Bz+uoEuxTBWoEEcp3UCiE'),
+(14, 'serge', 1337, 'serge', '$argon2i$v=19$m=65536,t=4,p=1$MTl3bHNLZWhoYzBPakFNbQ$crMzuUX8PZ4WCUNYAtIRgDtCRQk+jp4lJtc9jsM6Z54');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

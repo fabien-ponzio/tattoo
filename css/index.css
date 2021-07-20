@@ -1,102 +1,131 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
 
-  #main-index {
-    align-items: center;
-    background-color: #faf3e0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 50px 0;
-  }
+#main-index {
+  align-items: center;
+  background-color: #faf3e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+}
 
+video {
+  width: 87%;
+}
+
+#main-index-presentation {
+  background-color: #b68973;
+  color: #600127;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 50px 40px;
+  width: 87%;
+}
+
+#main-index-title {
+  border-top: 10px solid #600127;
+  color: #600127;
+  display: flex;
+  font-family: Pilar;
+  padding: 20px 0;
+}
+
+#main-index-map {
+  align-items: center;
+  background-color: #b68973;
+  color: #600127;
+  border: 10px solid #600127;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+  width: 87%;
+}
+
+#main-index-map address {
+  display: flex;
+  color: #600127;
+  flex-direction: column;
+  padding: 40px;
+}
+
+#main-index-map address a {
+  color: #600127;
+}
+
+#main-index-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+
+.index-gallery-img {
+  display: flex;
+  background-size: cover;
+  height: 400px;
+  object-fit: cover;
+  width: 30%;
+  margin: 1.66%;
+}
+/*////////////////////////// RESPONSIVE INDEX //////////////////////////////////////////////////////*/
+@media screen and (max-width: 980px) {
   video {
-    width: 87%;
-  }
-
-  #main-index-presentation {
-    background-color: #B68973;
-    color: #600127;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    padding: 50px 40px;
-    width: 87%;
+    width: 80%;
   }
 
   #main-index-title {
-    border-top: 10px solid #600127;
-    color: #600127;
-    display: flex;
-    font-family: Pilar;
-    padding: 20px 0;
+    font-size: 18px;
   }
 
   #main-index-map {
-    align-items: center;
-    background-color: #B68973;
-    color: #600127;
-    border: 10px solid #600127;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 30px;
-    width: 87%;
-  }
-
-  #main-index-map address {
-    display :flex;
-    color: #600127;
     flex-direction: column;
-    padding: 40px;
   }
 
-  #main-index-map address a {
-    color: #600127;
+  #main-index-map iframe {
+    width: 280px;
   }
 
   #main-index-gallery {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
     width: 90%;
   }
 
   .index-gallery-img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  #main-index {
+    width: 100%;
+  }
+
+  #main-index-presentation {
+    width: 80%;
+  }
+
+  #main-index-map {
+    width: 80%;
+  }
+
+  #main-index-map iframe {
+    width: 250px;
+  }
+
+  #main-index-gallery {
+    align-items: center;
     display: flex;
-    background-size: cover;
-    height:400px;
-    object-fit: cover;
-    width: 30%;
-    margin:1.66%;  /10%/6/
-  }
-/////////////////////////// RESPONSIVE INDEX ///////////////////////////////////////////////////////
-  @media screen and (max-width: 980px) {
-    video {
-      width: 80%;
-    }
-
-    #main-index-title {
-      font-size: 20px;
-    }
-
-    #main-index-map {
-      flex-direction: column;
-    }
-
-    #main-index-map iframe {
-      width: 400px;
-    }
-
-    #main-index-gallery {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 5%;
-      width: 90%;
-    }
-
-    .index-gallery-img {
-      width: 90%;
-    }
-
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+    width: 90%;
   }
 
+  .index-gallery-img {
+    width: 90%;
+  }
+}

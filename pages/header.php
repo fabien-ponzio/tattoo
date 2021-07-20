@@ -48,33 +48,43 @@ if (!isset($_SESSION)) {
     
     <ul id="menu">
       <a href="<?= $indexPath ?>"><li>Accueil</li></a>
-      <a class="dropResponsive" href="#">
-        <li>Artistes</li>
-          <div class="dropResponsive-content">
+      <div>
+        <nav class="nav-responsive">
+          <li class="bouton-menu-responsive">
+            Artistes
+          </li>
+          <div class="bottom-child">
           <?php 
             $tatoueur = new Display(); 
             $artists = $tatoueur->getArtists();
             foreach ($artists as $tatoueur){
               if ($tatoueur['nom'] != ''){ ?>
-                <a href="<?=$tatoueursPath?>?id=<?=$tatoueur['id']?>"><?= $tatoueur['nom']?></a>
+                <li><a class="bottomlist" href="<?=$tatoueursPath?>?id=<?=$tatoueur['id']?>"><?= $tatoueur['nom']?></a></li>
             <?php
               }
             }
           ?>
           </div>
-      </a>
+        </nav>
+      </div>
       <a href="<?=$contactPath?>"><li>Contact</li></a>
       <a href="<?=$FAQpath?>"><li>F.A.Q</li></a>
       <?php 
       if (isset($_SESSION['admin']['id_droit'])== '1337'){
         ?>
-        <a href="panel_admin.php" class="dropReponsive">
-          <li>Admin</li>
-          <div class="dropResponsive-content">
-             <a href="">test</a>
-     
+        <div>
+        <nav class="nav-responsive">
+          <li class="bouton-menu-responsive">
+            Admin
+          </li>
+          <div class="bottom-child">
+            <li><a class="bottomlist" href="<?=$planningPath?>">Planning</a></li>
+            <li><a class="bottomlist" href="<?=$AdminPanelPath?>">Gestion d'admin</a></li>
+            <li><a class="bottomlist" href="<?=$contentPanel?>">Gestion de contenu</a></li>
+            <li><a class="bottomlist" href="<?=$updatePath?>">Mise à jour profil</a></li>
           </div>
-        </a>
+        </nav>
+      </div>
       <?php
       }
       ?>
@@ -91,7 +101,7 @@ if (!isset($_SESSION)) {
   <div class="headerLink">
     <a href="<?= $indexPath ?>">Accueil</a>
     <div class="dropdown">
-    <a href="<?= $tatoueursPath ?>" class="dropbtn">Artistes</a>
+    <a href="#" class="dropbtn">Artistes</a>
     <div class="dropdown-content">
     <?php 
       $tatoueur = new Display(); 

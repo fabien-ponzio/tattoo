@@ -125,7 +125,7 @@ else{
                 $insert->bindValue (":cryptedpass", $cryptedpass, PDO::PARAM_STR); 
                 $insert->execute();
                 echo"Nouvel administrateur ajouté";
-                header('location:../pages/adminConn.php');
+                header('location:../pages/update.php');
                 }else{
                     echo "Les mots de passe ne correspondent pas"; 
                 }

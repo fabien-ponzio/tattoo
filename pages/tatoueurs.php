@@ -19,7 +19,7 @@ $imagesFlash = $display->getImagesFlash($id);
 <link rel="stylesheet" href="../css/tatoueurs.css">
 <link rel="stylesheet" href="css/footer.css">
 <title><?= $page ?></title>
-<body>
+
     <main id="main-presentation-artist">
         <section class="presentation-artist">
             <img src="../images/<?= $infosArtist[0]['image']?>" width="600px" alt='picture_artist'>
