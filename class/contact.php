@@ -25,7 +25,7 @@ public function getRequests( $mailFrom, $mailTo, $motifContact, $tatoueur, $budg
         $majeur = $_POST['ageInput'];
         $mineur = $_POST['ageInput'];
         $file = $_FILES['fileUpload'];
-        var_dump($file); 
+        // var_dump($file); 
         $description = $_POST['description']; 
         
         $headers = "From : ".$mailFrom;
@@ -34,8 +34,8 @@ public function getRequests( $mailFrom, $mailTo, $motifContact, $tatoueur, $budg
         $description = wordwrap($description, 70, "\r\n"); 
         mail($mailTo, $motifContact, $txt, $headers);
         // header("Location: index.php?mailsend");
-        var_dump($_POST);
-        var_dump($txt); 
+        // var_dump($_POST);
+        // var_dump($txt); 
     } 
 }
 public function InsertRequests($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file){
@@ -60,7 +60,7 @@ public function InsertRequests($name, $reason,$email, $phone, $tatoueur, $budget
         $insert->bindValue(":image_contact", $file, PDO::PARAM_STR);
         $insert->bindValue(":nom", $name, PDO::PARAM_STR);
         $insert->bindValue(":phone", $phone, PDO::PARAM_STR);
-        var_dump($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file);
+        // var_dump($name, $reason,$email, $phone, $tatoueur, $budget, $majeur, $description, $file);
         $insert->execute();
 }
 
@@ -70,7 +70,7 @@ public function deleteRequest($id){
     $delete = $db->conn->prepare("DELETE FROM contact WHERE id = :id");
     $delete->bindValue(":id", $id, PDO::PARAM_INT);
     $delete->execute(); 
-    header('location:panel_admin.php');
+    header('location:admin_contact.php');
 }
 //echo"hello";
 }

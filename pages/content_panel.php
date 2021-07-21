@@ -17,8 +17,7 @@ if($page ==="index"){
 
         $insertImage = $showArtists->registerImage($namePhoto, $class, $tattooArtist);
         require_once("upload1/upload.php");
-        var_dump($_POST);
-
+        // var_dump($_POST);
     }
 ?>
 <link rel="stylesheet" href="css/header.css">
@@ -49,7 +48,5 @@ if($page ==="index"){
         </div>
     </form>
 </main>
-<?php //}else{
-    echo "Vous ne pouvez pas accéder à cette page.";
-//} ?>
+
 <?php require_once('footer.php'); ?>

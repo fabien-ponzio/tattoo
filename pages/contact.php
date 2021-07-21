@@ -94,17 +94,13 @@ if(isset($_POST['contact'])) {
           
             <div class="contact-form-container">
                 <div class="contact-form-subcontainer">
-                    <label>Images d'exemple de votre requête</label>
-                    <!-- <form action="index.php" method="POST"> -->
-                    <!--<input type="file" name="fileUpload">-->
+                    <label>Images d'exemple de votre requête : ATTENTION UNE SEULE IMAGE POSSIBLE 5 MO MAX.(.jpg, .jpeg, .png)</label>
                     <input type="file" id="photo" name="photo1" class="input-line full-width">
-                    <!-- <button type="submit" name="upload">UPLOAD IMAGE</button> -->
-                    <!-- </form> -->
                 </div>
             </div>
             <div class="contact-form-container">
                 <div class="contact-form-subcontainer2">
-                <label>Détaillez votre demande au maximum (soyez le plus précis possible)</label>
+                <label>Détaillez votre demande au maximum (soyez le plus précis possible: taille, couleur etc...)</label>
                 <textarea class="contact-form-textarea" rows="4" cols="100" type="textarea" name="description" placeholder="Taille du tatouage, emplacement, déjà tatoué(e)?.."></textarea>
                 </div>
             </div>

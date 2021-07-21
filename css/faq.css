@@ -3,11 +3,11 @@
     display: flex;
     align-items: center;
 }
-.box:hover{
+/* .box:hover{
     background-color:#600127;
     transition: 0.4ms;
     color:#faf3e0 ;
-}
+} */
 .question{
     padding: 50px;
     background-color: #B68973;
@@ -22,9 +22,9 @@ margin-left: 50px;
 margin-right: 50px;
 color:#600127;
 }
-/* .hide :hover{
+.hide :hover{
     color:#faf3e0 ;
-} */
+}
 
 .soins{  
     padding: 15px;

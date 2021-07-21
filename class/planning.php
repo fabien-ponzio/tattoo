@@ -129,14 +129,14 @@ class Planning
             $resa = new Reservation(); 
 
            $debut = $resa->dateFromStringToDateTimeObject($reservation['debut']); 
-           var_dump($debut); 
+        //    var_dump($debut); 
 
            $fin = $resa->dateFromStringToDateTimeObject($reservation['fin']);
-            var_dump($fin);
+            // var_dump($fin);
 
-            var_dump($date); 
+            // var_dump($date); 
             $interval = date_diff($debut, $fin);
-            var_dump($interval);
+            // var_dump($interval);
             //transformer $date en objet datetime et trouver le type d'objet de $date; 
             $reservation = ($fin->diff($debut)->format('%h'));
         }
@@ -162,7 +162,7 @@ class Planning
         echo '</tr></thead><tbody>'; 
         foreach ($H as $hour){
             echo'<tr>'; 
-            var_dump($day);
+            // var_dump($day);
             foreach ($day as $days) {
                 if(is_object($days)){
                     $currentDateTime = $days->format('Y/m/d') . ' ' . $hour; 
@@ -174,7 +174,7 @@ class Planning
                 }else {
                     $html = ''; 
                 }
-                var_dump($result);
+                // var_dump($result);
                 foreach ($result as $reservation) {
                     if(is_object($days)){
                         $currentDateTime = $days->format('Y/m/d') . ' ' . $hour; 

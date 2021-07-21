@@ -2,7 +2,15 @@
   font-family: Pilar;
   src: url(../fonts/Pilar-Display-Typeface.ttf);
 }
-
+.error-message {
+  align-items: center;
+  background-color: #faf3e0;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  width: 100%;
+  margin-bottom: -1.5%;
+}
 header {
   align-items: center;
   display: flex;
@@ -83,6 +91,8 @@ header {
   display: block;
   padding: 12px 16px;
   text-decoration: none;
+  background-color: #b68973;
+  font-family: 'Pilar';
 }
 
 /* Show the dropdown menu on hover */

@@ -26,7 +26,7 @@ $imagesFlash = $display->getImagesFlash($id);
             <h1><?= $infosArtist[0]['nom'] ?></h1>
         </section>
         <section id="main-news-title">
-            <h2> Nouveautés</h2>
+            <h2>Flashs</h2>
         </section>
         <section id="main-artist-gallery-flash">
             <?php foreach ($imagesFlash as $image) { ?>

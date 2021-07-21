@@ -100,6 +100,7 @@ $path_logout = GENERAL_PATH.'class/logout.php';
 //CHEMINS PAGES 
 $indexPath = GENERAL_PATH.'index.php'; 
 $adminConnPath =GENERAL_PATH.'pages/adminConn.php'; 
+$contactAdminPath =GENERAL_PATH.'pages/admin_contact.php'; 
 $contactPath=GENERAL_PATH.'pages/contact.php';
 $registerAdminPath=GENERAL_PATH.'pages/inscription_admin.php';
 $AdminPanelPath=GENERAL_PATH.'pages/panel_admin.php';  

@@ -11,9 +11,9 @@ if($page ==="index"){
 //var_dump($_SESSION['admin']['login']);
 if (isset($_POST['deleteRequest'])) {
     $id_message = $_POST['contactId'];
-    var_dump($id_message);
+    // var_dump($id_message);
     $RequestDelete = new Contact;
-    //$RequestDelete->deleteRequest($id_message); 
+    $RequestDelete->deleteRequest($id_message); 
 }
 ?>
 <link rel="stylesheet" href="css/header.css">
@@ -29,6 +29,7 @@ if (isset($_POST['deleteRequest'])) {
             $contact = new Display();
             $displayMessage = $contact->getContact($_SESSION['admin']['login']);
             //var_dump($displayMessage);
+            //var_dump($_POST);
             foreach ($displayMessage as $message) {?>
             <article class="admin-contact-message">
                 <div class="admin-contact-refs">

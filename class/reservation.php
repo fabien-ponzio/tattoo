@@ -69,12 +69,12 @@ public DateTime $end;
     
         $sth = $db->conn->prepare("SELECT id FROM `reservation` WHERE :debut <= `debut` AND `debut` <= :fin");
         $sth->bindValue(":debut", $start); 
-        var_dump($start); 
-        var_dump($end); 
+        // var_dump($start); 
+        // var_dump($end); 
         $sth->bindValue(":fin", $end); 
         $sth->execute(); 
         $result = $sth->fetchAll(PDO::FETCH_COLUMN); 
-        var_dump($result); 
+        // var_dump($result); 
         // OKOKOKOKOKOKOK
         foreach ($result as $id) {
             $reservations[] = $this->get($id);
@@ -117,13 +117,13 @@ public DateTime $end;
     /** Return a DateTime object is string formated as Y#m#d*H#i#s or Y#m#d*H#i is given */
     public static function dateFromStringToDateTimeObject($date)
     {
-        var_dump ($date);
+        // var_dump ($date);
         if (is_string($date)) {
             if (strlen($date) == 16) {
                 $date .= ':00';
             }
             $date = DateTime::createFromFormat('Y#m#d*H#i#s', $date);
-            var_dump($date); 
+            // var_dump($date); 
         }
         return $date;
         // return $date->format('Y#m#d*H#i#s');

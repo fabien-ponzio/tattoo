@@ -217,7 +217,7 @@ else{
 
         foreach ($adminTab as $value) {
             echo '<option value="' . $value[0] . '">' . $value[1] . '</option>';
-            var_dump($value[0]);
+            // var_dump($value[0]);
         }
     }
 

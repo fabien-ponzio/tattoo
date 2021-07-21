@@ -79,9 +79,10 @@ if (!isset($_SESSION)) {
           </li>
           <div class="bottom-child">
             <li><a class="bottomlist" href="<?=$planningPath?>">Planning</a></li>
+            <li><a class="bottomlist" href="<?=$contactAdminPath?>">Messages</a></li>
             <li><a class="bottomlist" href="<?=$AdminPanelPath?>">Gestion d'admin</a></li>
             <li><a class="bottomlist" href="<?=$contentPanel?>">Gestion de contenu</a></li>
-            <li><a class="bottomlist" href="<?=$updatePath?>">Mise à jour profil</a></li>
+            <li><a class="bottomlist" href="<?=$updatePath?>">Mise a jour profil</a></li>
           </div>
         </nav>
       </div>
@@ -128,10 +129,12 @@ if (!isset($_SESSION)) {
         <div class="dropdown">
         <a href="#" class="dropbtn">Admin</a>
         <div class="dropdown-content">
+          
+        <a href="<?=$contactAdminPath?>">Messages</a>
           <a href="<?=$planningPath?>">Planning</a>
           <a href="<?=$AdminPanelPath?>">Gestion d'admin</a>
           <a href="<?=$contentPanel?>">Gestion de contenu</a>
-          <a href="<?=$updatePath?>">Mise à jour profil</a>
+          <a href="<?=$updatePath?>">Mise a jour profil</a>
         </div>
         </div>
         <a href="<?=$path_logout?>" name="logout">Deconnexion</a>     
